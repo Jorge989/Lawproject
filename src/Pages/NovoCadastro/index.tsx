@@ -6,7 +6,12 @@ import {Link, useHistory} from 'react-router-dom'
  import api from '../../services/api'
 
 const NovoCadastro: React.FC = () => {
-const [projects, setProjects] =useState([]);
+  const [projects, setProjects] = useState([]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [url, setUrl] = useState('');
+  const [error, setError] = useState(['']);
 const history =useHistory();
 console.log(history);
 
@@ -21,9 +26,24 @@ const handleHistory = () =>{
     },[]);
   
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [url, setUrl] = useState("");
+    useEffect(() => {
+      const messageErrorEmail = 'Email é requerido';
+      const messageErrorSenha = 'Senha precisa ser maior que 6';
+      if (!email) {
+        if (!error.find((string) => string === messageErrorEmail))
+          setError([...error, messageErrorEmail]);
+      }
+  
+      if (senha.length <= 6) {
+        if (!error.find((string) => string === messageErrorSenha))
+          setError([...error, messageErrorSenha]);
+      }
+  
+      if (email && senha.length > 6) {
+        setError(['']);
+      }
+    }, [email, senha]);
+  
   const responseGoogle = (response:| GoogleLoginResponse |GoogleLoginResponseOffline): void => {
     if (!('profileObj' in response)) return;
     setName(response.profileObj.name);
@@ -35,44 +55,73 @@ const handleHistory = () =>{
 <Container>
 <Header>
 <div className="cont">
-    <li> <a href="#" className="cool-link">Faq</a></li>
-    <li> <a href="#" className="cool-link1">Sobre</a></li>
-    <li> <a href="#" className="cool-link2">Preços</a></li>
-    <li> <a href="#" className="cool-link3">Contate-nos</a></li>
-
-</div>
+          <li>
+            {' '}
+            <a href="#" className="cool-link">
+              Faq
+            </a>
+          </li>
+          <li>
+            {' '}
+            <a href="#" className="cool-link1">
+              Sobre
+            </a>
+          </li>
+          <li>
+            {' '}
+            <a href="#" className="cool-link2">
+              Preços
+            </a>
+          </li>
+          <li>
+            {' '}
+            <a href="#" className="cool-link3">
+              Contate-nos
+            </a>
+          </li>
+        </div>
     
-        <Entrar> 
-        <button>
-        Entrar
-        </button>
+        <Entrar>
+          <button>Entrar</button>
         </Entrar>
         <Entrar2>
-        <button>
-        Teste Grátis
-        </button>
+          <button>Teste Grátis</button>
         </Entrar2>
-</Header>
+      </Header>
 
 <Blue>
 <div>
-  <script defer src="script.js"></script>
-<div id="error"></div>
-<form action="novocadastro" method="POST">
+
+
   <Link to="/">
   <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "25px",marginTop:"-75px" }}  />
   </Link>
   <h2>Email</h2>
-  <input id="email"  placeholder="E-mail"/>
+  <input
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail"
+            />
   <h2>Senha</h2>
-  
-  <input id="senha"   placeholder="Senha"/>
-  <button type="submit"><a href="/cadastroinfo">Cadastrar</a>
-    </button>
-    </form>
+  <input
+              id="senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              placeholder="Senha"
+            />
+         
+ 
+ <button type="submit">
+               <a href="/cadastroinfo">
+              Cadastrar
+                </a> 
+            </button>
+
 </div>
  
 <h1>Bem-Vindo !</h1>
+
 <h3>Cadastrar</h3>
 
 <h4>ou acesse rapidamente!</h4>
@@ -96,6 +145,7 @@ const handleHistory = () =>{
     
     />
 <button><a href="login">Já possui login?</a></button>
+<div  className="error" id="error">{error}</div>
 </Blue>
 
 

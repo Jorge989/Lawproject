@@ -351,7 +351,7 @@ margin-top: -55%;
 >button{
   display:flex;
 margin-top:5%;
-  margin-left:72.5%;
+  margin-left:73.4%;
   font-size:20px;
   cursor: pointer;
   >a{
@@ -377,6 +377,14 @@ margin-top:5%;
     margin-left:75%;
    
   
+  }
+  
+  div.error{
+    position:fixed;
+    margin-left:0%;
+    font-size:17px;
+    margin-top:20%;
+    color:#FF0023;
   }
  >div{
   >button{
@@ -440,6 +448,13 @@ outline:0;
 
 
  }
+ div.error{
+    position:fixed;
+    margin-left:51.5%;
+    font-size:17px;
+    margin-top:-6%;
+    color:#FF0023;
+  }
 
  @media (max-width: 601px){
 
