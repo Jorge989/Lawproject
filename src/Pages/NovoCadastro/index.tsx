@@ -1,24 +1,127 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useCallback, useRef,InputHTMLAttributes} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
+import {FiLock} from 'react-icons/fi'
+import {FiMail} from 'react-icons/fi'
+import {FiUser} from 'react-icons/fi'
+import  {Form} from '@unform/web'
+import {FormHandles} from '@unform/core'
+import {FiEyeOff} from 'react-icons/fi'
+import {FiEye} from 'react-icons/fi'
+
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
  import api from '../../services/api'
+ import * as Yup from 'yup';
+ import { useForm } from "react-hook-form";
+ import { useField } from '@unform/core';
+ import getValidationErrors from '../../utils/getValidationErros';
+ import Input from '../../Components/Input';
+ import Button from '../../Components/Button';
 
-const NovoCadastro: React.FC = () => {
+
+ 
+ const NovoCadastro: React.FC = () => {
+   const [data, setData] = useState({ });
+  const history = useHistory();
+  const formRef =useRef<FormHandles> (null);
+  console.log(formRef)
+
+  const  handleSubmit = useCallback(async(data: object): Promise<void> => {
+
+    try {
+      formRef.current?.setErrors({}); 
+      const schema = Yup.object().shape({
+        nome: Yup.string().required('Nome obrigatório'),
+        email: Yup.string().required('E-mail obrigatório'),
+        senha: Yup.string()
+        .min(8, 'No minimo 8 dígitos'),
+
+      })
+      await schema.validate(data,{
+        abortEarly: false,
+      });
+
+      
+  
+      const response = await api.post('usuarios', data);
+      
+   history.push('/cadastroinfo', (data))
+ // }
+      console.log(response.data);
+    } catch (err) {
+      console.log(err)
+      const errors = getValidationErrors(err);
+      formRef.current?.setErrors(errors);
+ 
+      
+    }
+  }, []);
+
+
+
+
   const [projects, setProjects] = useState([]);
   const [name, setName] = useState('');
+  
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [url, setUrl] = useState('');
-  const [error, setError] = useState(['']);
-const history =useHistory();
-console.log(history);
+  const [errorE, setErrorE] = useState(['']);
+  const [errorS, setErrorS] = useState(['']);
+  const [passwordError, setPasswordError] = useState('')
 
 
-const handleHistory = () =>{
-  history.push("")
-}
+
+  var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+  var regemail = /^\w+([-+.']\w+)@\w+([-.]\w+).\w+([-.]\w+)*$/
+  const eye = <FiEyeOff/>;
+ 
+  
+
+
+
+    
+
+
+  // function handleSubmit2(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  //   e.preventDefault()
+  
+
+  // const handleSubmi2 = useCallback(async(data: object) =>{
+
+  
+  //   history.push('/cadastroinfo', { email, senha })
+  //   try{
+// const schema = Yup.object().shape({
+//   name: Yup.string().required(),
+//   email: Yup.string().required('E-mail obrigatório').email('Digite um e-mail válido'),
+//   senha: Yup.string().min(8, "No mínimo 6 digitos"),
+// })
+// await schema.validate(data, {
+//   abortEarly: false,
+// });
+// formRef.current?.setErrors({
+//   email: 'Email obrigatório'
+// })
+//     } catch (err) {
+// formRef.current?.setErrors({
+//   email: 'Email obrigatório',
+// });
+//     }
+//   }, []);
+
+
+const [passwordShown, setPasswordShown] = useState(false);
+const [inputType, setInputType] = useState("password")
+  const togglePasswordVisiblity = () => {
+    
+     setPasswordShown(passwordShown ===true? false : true);
+     setInputType(inputType === "password" ? "text" : "password");
+   };
+ 
+ <i onClick={togglePasswordVisiblity}>{eye}</i>
+ 
     useEffect(() =>{
       api.get('escritorios/listar').then(response => {
         console.log(response.data)
@@ -26,23 +129,25 @@ const handleHistory = () =>{
     },[]);
   
 
-    useEffect(() => {
-      const messageErrorEmail = 'Email é requerido';
-      const messageErrorSenha = 'Senha precisa ser maior que 6';
-      if (!email) {
-        if (!error.find((string) => string === messageErrorEmail))
-          setError([...error, messageErrorEmail]);
-      }
-  
-      if (senha.length <= 6) {
-        if (!error.find((string) => string === messageErrorSenha))
-          setError([...error, messageErrorSenha]);
-      }
-  
-      if (email && senha.length > 6) {
-        setError(['']);
-      }
-    }, [email, senha]);
+    // useEffect(() => {
+    //   if(senha && !reg.test(senha)){
+    //     setPasswordError(messagePonto)
+    //   } else{
+    //     setPasswordError('')
+    //   }
+    // }, [senha])
+
+    // useEffect(() => {
+    //   if(email && !reg.test(email)){
+    //     setPasswordError(messageArroba)
+    //   } else{
+    //     setPasswordError('')
+    //   }
+    // }, [email])
+
+ 
+ 
+ 
   
   const responseGoogle = (response:| GoogleLoginResponse |GoogleLoginResponseOffline): void => {
     if (!('profileObj' in response)) return;
@@ -52,7 +157,7 @@ const handleHistory = () =>{
   }
   return (
 
-<Container>
+<Container> 
 <Header>
 <div className="cont">
           <li>
@@ -90,38 +195,52 @@ const handleHistory = () =>{
       </Header>
 
 <Blue>
+  <Form  ref={formRef} onSubmit={handleSubmit}>
 <div>
 
 
   <Link to="/">
-  <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "25px",marginTop:"-75px" }}  />
+  <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "25px",marginTop:"-60px" }}  />
   </Link>
-  <h2>Email</h2>
-  <input
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="E-mail"
-            />
-  <h2>Senha</h2>
-  <input
-              id="senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-              placeholder="Senha"
-            />
+
+  <h2>Nome</h2>
+  <Input
+
+name="nome"
+icon={FiUser}
+type="text"
+placeholder="nome"
+ />
+
+ 
+<h2>Email</h2>
+  <Input
+
+name="email"
+icon={FiMail}
+type="email"
+placeholder="email"
+ />
+    <h2>Senha</h2>       
+  <Input
+name="senha"
+icon={FiLock}
+type={inputType}
+  placeholder="Senha"
+  />
+ 
+             
          
  
- <button type="submit">
-               <a href="/cadastroinfo">
-              Cadastrar
-                </a> 
-            </button>
+         <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
+
 
 </div>
- 
 <h1>Bem-Vindo !</h1>
+<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
+          {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
+          </button>
 <h3>Cadastrar</h3>
 
 <h4>ou acesse rapidamente!</h4>
@@ -130,6 +249,7 @@ const handleHistory = () =>{
 
 
 <Draw/>
+
 
 
 
@@ -145,12 +265,15 @@ const handleHistory = () =>{
     
     />
 <button><a href="login">Já possui login?</a></button>
-<div  className="error" id="error">{error}</div>
+
+<div  className="error" id="error">{errorE}</div>
+</Form>
 </Blue>
 
 
 </Container>
   )
 }
+
 
 export default NovoCadastro;

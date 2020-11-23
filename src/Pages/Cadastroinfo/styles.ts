@@ -400,6 +400,7 @@ outline:0;
 
  }
 >select{
+  
 outline:0;
 padding-left:5px;
   z-index:999;
@@ -533,6 +534,7 @@ margin-top:40%;
 }
 
  >div{
+   
   display:flex;
 flex-direction:column;
   width:100%;

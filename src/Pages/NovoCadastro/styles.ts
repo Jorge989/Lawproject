@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled ,{css}from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
 import {Go} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
+
+
+
 export const Container = styled.div`
 display:flex;
 justify-content:center;
@@ -10,6 +13,9 @@ justify-content:center;
   margin: 0 auto;
   width: 100%;
   z-index:999;
+
+
+
 `;
 
 
@@ -298,8 +304,12 @@ margin-left:20px;
 }}
 
 `;
+
+
+
 export const Blue = styled.div`
- background-color:#4040FF;
+
+background-color:#4040FF;
  background-image: linear-gradient( to right,#4040FF  60%, #EBEBEB 60%, #EBEBEB );
 
  border-radius:5px;
@@ -310,123 +320,43 @@ margin-left:0%;
  height:480px;
 
  margin-top:79px;
-
- >svg{
  
-    width:30%;
-    height:60%;
-    margin-left:0px;
-    margin-top:-138px;
-   
-  }
-  h3{
-
-    margin-left:73.5%;
-  margin-top:-110px;
-  font-size:27px;
-  color:#2B2B2B
-  }
-  h4{
-   
-    margin-left:72%;
- 
-  margin-top:260px;
-  font-weight:400;
-  font-size:15.7px;
-  color:#141414;
-  }
+>Form{
+  height:100%;
   >h1{
    
-width:40%;
-
-color: #fff;
-font-size: 60px;
-font-weight:200;
-margin-left: 15%;
-margin-top: -55%;
-
-
-
-}
->button{
-  display:flex;
-margin-top:5%;
-  margin-left:73.4%;
-  font-size:20px;
-  cursor: pointer;
-  >a{
-      text-decoration: none;
-      color:#101010;
-      &:hover{
-   color:#2828FC;
-  }
-    }
-
-
-  height:10%;
-  &:hover{
-   color:#2828FC;
-  }
-}
-
-.btngoogle{
-  outline:0;
-    width:2.5%;
-    height:5.5%;
-    margin-top:-15%;
-    margin-left:75%;
+   width:40%;
    
-  
-  }
-  
-  div.error{
-    position:fixed;
-    margin-left:0%;
-    font-size:17px;
-    margin-top:20%;
-    color:#FF0023;
-  }
- >div{
-  >button{
-  
-    outline:0;
- box-shadow: 0px 5px 5px #A4A4A4;
-cursor:pointer;
- margin-top:10px;
- margin-left:62.5%;
- border-radius:5px;
- background-color:#0000FF;
- color:#fff;
- font-size:20px;
- font-weight:600;
- width:35%;
- height:9.5%;
- >a{
-  text-decoration:none; 
-   color:#fff;
-
- }
-&:hover{
-background-color:#2828FC;
-}
-
-}
+   color: #fff;
+   font-size: 60px;
+   font-weight:200;
+   margin-left: 15%;
+   margin-top: -53%;
+   
+   
+   
+   }
+  >div{
+ 
+ 
 
 >h2{
 
 color: #141414;
   width:20%;
-  height:40px;
+  height:20.7px;
   display:flex;
  
 
 margin-left:62.7%;
 font-size:17px;
-margin-top:13px;
+margin-top:5px;
+
 }
 
+z-index:999;
 width:100%;
-margin-top:10%;
+margin-top:8%;
 height:100%;
  
 
@@ -448,14 +378,80 @@ outline:0;
 
 
  }
- div.error{
-    position:fixed;
-    margin-left:51.5%;
-    font-size:17px;
-    margin-top:-6%;
-    color:#FF0023;
-  }
 
+ >svg{
+
+ width:30%;
+ height:60%;
+ margin-left:0px;
+ margin-top:-182px;
+
+}
+
+
+>.eye{
+  z-index:999;
+
+outline:0;
+height:3%;
+margin-left:65%;
+margin-top: 10%;
+position:absolute;
+}
+
+
+>button{
+display:flex;
+margin-top:2%;
+margin-left:73.4%;
+font-size:20px;
+cursor: pointer;
+>a{
+  text-decoration: none;
+  color:#101010;
+  &:hover{
+color:#2828FC;
+}
+}
+
+
+height:10%;
+&:hover{
+color:#2828FC;
+}
+}
+
+.btngoogle{
+outline:0;
+width:2.5%;
+height:5.5%;
+margin-top:-11%;
+margin-left:75%;
+
+
+}
+h3{
+
+margin-left:73.5%;
+margin-top:-115px;
+font-size:27px;
+color:#2B2B2B
+}
+h4{
+
+margin-left:72%;
+
+margin-top:310px;
+font-weight:400;
+font-size:15.7px;
+color:#141414;
+}
+}
+
+
+
+ 
+ 
  @media (max-width: 601px){
 
   background-color:#4040FF;
@@ -485,6 +481,7 @@ display:none;
   font-size:27px;
   color:#2B2B2B
   }
+  
   h4{
    
     margin-left:20%;
@@ -597,7 +594,7 @@ outline:0;
 export const GoogleLogin = styled(CustomGoogleLogin)`
 background-color:red;
 margin-left:200px;
-margin-top:-30%;
+margin-top:-20%;
 >button{
   background-color:red;
   margin-top:-30%;

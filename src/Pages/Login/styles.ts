@@ -311,108 +311,43 @@ export const Blue = styled.div`
 
  margin-top:100px;
 
- >svg{
- 
-    width:30%;
-    height:60%;
-    margin-left:0px;
-    margin-top:-138px;
-   
-  }
-  h3{
-
-    margin-left:76%;
-  margin-top:-110px;
-  font-size:27px;
-  color:#2B2B2B
-  }
-  h4{
-   
-    margin-left:72%;
- 
-  margin-top:260px;
-  font-weight:400;
-  font-size:15.7px;
-  color:#141414;
-  }
+ >Form{
+  height:100%;
   >h1{
    
-width:40%;
-
-color: #fff;
-font-size: 60px;
-font-weight:200;
-margin-left: 15%;
-margin-top: -55%;
-
-
-
-}
-.btngoogle{
-  outline:0;
-    width:2.5%;
-    height:6.5%;
-    margin-top:-15%;
-  
-  }
->button{
-  display:flex;
-margin-top:40px;
-  margin-left:75%;
-  font-size:20px;
-  cursor: pointer;
-  >a{
-      text-decoration: none;
-      color:#101010;
-      &:hover{
-   color:#2828FC;
-  }
-    }
-
-
-  height:10%;
-  &:hover{
-   color:#2828FC;
-  }
-}
-
-
- >div{
-  >button{
-  
-    outline:0;
- box-shadow: 0px 5px 5px #A4A4A4;
-cursor:pointer;
- margin-top:10px;
- margin-left:62.5%;
- border-radius:5px;
- background-color:#0000FF;
- color:#fff;
- font-size:20px;
- font-weight:600;
- width:35%;
- height:9.5%;
-&:hover{
-background-color:#2828FC;
-}
-
-}
+   width:40%;
+   
+   color: #fff;
+   font-size: 60px;
+   font-weight:200;
+   margin-left: 15%;
+   margin-top: -53%;
+   
+   
+   
+   }
+   
+  >div{
+ 
+ 
 
 >h2{
 
 color: #141414;
   width:20%;
-  height:40px;
+  height:20.7px;
   display:flex;
  
 
 margin-left:62.7%;
 font-size:17px;
-margin-top:13px;
+margin-top:5px;
+
 }
 
+z-index:999;
 width:100%;
-margin-top:10%;
+margin-top:8%;
 height:100%;
  
 
@@ -434,6 +369,76 @@ outline:0;
 
 
  }
+
+ >svg{
+
+ width:30%;
+ height:60%;
+ margin-left:0px;
+ margin-top:-105px;
+
+}
+
+
+>.eye{
+  z-index:999;
+
+outline:0;
+height:3%;
+margin-left:65%;
+margin-top: 4.4%;
+position:absolute;
+}
+
+
+>button{
+display:flex;
+margin-top:2%;
+margin-left:74.8%;
+font-size:20px;
+cursor: pointer;
+>a{
+  text-decoration: none;
+  color:#101010;
+  &:hover{
+color:#2828FC;
+}
+}
+
+
+height:10%;
+&:hover{
+color:#2828FC;
+}
+}
+
+.btngoogle{
+outline:0;
+width:2.5%;
+height:5.5%;
+margin-top:-19.2%;
+margin-left:75%;
+
+
+}
+h3{
+
+margin-left:73.5%;
+margin-top:-115px;
+font-size:27px;
+color:#2B2B2B
+}
+h4{
+
+margin-left:72%;
+
+margin-top:232px;
+font-weight:400;
+font-size:15.7px;
+color:#141414;
+}
+}
+
 
  @media (max-width: 601px){
 
