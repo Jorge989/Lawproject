@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import GlobalStyles from './styles/GlobalStyles'
+
 import Layout from './Pages/Layout';
-import {Route, BrowserRouter,Switch} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Routes from './routes'
 import api from './services/api';
 import ToastContainer from './Components/ToastContainer';
@@ -12,12 +13,12 @@ const App: React.FC = ()  =>{
 
 
   return (
-    <BrowserRouter>
+    <Router>
 <AppProvider> 
 <Routes/>
 <GlobalStyles/>
 </AppProvider>
-</BrowserRouter>
+</Router>
 
   );
 }

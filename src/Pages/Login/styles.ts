@@ -599,6 +599,12 @@ export const Googleicon = styled(Go)`
 `;
 
 
+export const AnimationContainer = styled.div`
+
+
+
+`
+;
 
 
 

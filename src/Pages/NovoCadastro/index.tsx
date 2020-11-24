@@ -18,14 +18,13 @@ import {Link, useHistory} from 'react-router-dom'
  import getValidationErrors from '../../utils/getValidationErros';
  import Input from '../../Components/Input';
  import Button from '../../Components/Button';
-
-
+import {useToast} from '../../hooks/toast'
  
  const NovoCadastro: React.FC = () => {
    const [data, setData] = useState({ });
   const history = useHistory();
   const formRef =useRef<FormHandles> (null);
-  console.log(formRef)
+const {addToast} = useToast();
 
   const  handleSubmit = useCallback(async(data: object): Promise<void> => {
 
@@ -44,19 +43,37 @@ import {Link, useHistory} from 'react-router-dom'
 
       
   
-      const response = await api.post('usuarios', data);
+       await api.post('usuarios', data);
+      addToast({
+        type: 'sucess',
+        title: 'Cadastro realizado com sucesso'
+
+      })
+      history.push('/cadastroinfo', (data))
+
       
-   history.push('/cadastroinfo', (data))
+
  // }
-      console.log(response.data);
+      // console.log(response.data);
+      
     } catch (err) {
       console.log(err)
-      const errors = getValidationErrors(err);
-      formRef.current?.setErrors(errors);
+      if (err instanceof Yup.ValidationError){
+        console.log(err)
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+
+      }
+    
+      addToast({
+        type: 'error',
+        title: 'Erro na cadastro',
+        description: 'Ocorreu um erro ao fazer cadastro, tente novamente.'
+      });
  
       
     }
-  }, []);
+  }, [addToast]);
 
 
 

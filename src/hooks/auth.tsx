@@ -43,11 +43,12 @@ export const AuthProvider: React.FC = ({children}) =>{
             senha,
         });
 
-        const {token, user} = response.data;
+        const { token, usuario: user } = response.data
         localStorage.setItem('@ActionLaw: token', token);
         localStorage.setItem('@ActionLaw: user', JSON.stringify(user));
         setData({ token, user})
         console.log(response.data)
+        console.log(user)
     };
 
 const signOut = useCallback(() =>{
