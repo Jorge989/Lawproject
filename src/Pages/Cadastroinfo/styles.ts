@@ -311,16 +311,51 @@ margin-left:0%;
 
  margin-top:79px;
 
+
+
+>Form{
+  >button{
+    z-index:999;
+  outline:0;
+box-shadow: 0px 5px 5px #A4A4A4;
+cursor:pointer;
+margin-top:13.5%;
+margin-left:82%;
+
+border-radius:5px;
+background-color:#0000FF;
+color:#fff;
+font-size:20px;
+font-weight:400;
+width:12%;
+height:50px;
+&:hover{
+background-color:#2828FC;
+}
+
+>a{
+  color:#fff;
+  text-decoration: none;
+}
+}
+  >h5{
+
+font-size:30px;
+font-weight:400;
+margin-top:-39.5%;
+margin-left:5.2%;
+
+}
  >svg{
 
 z-index:999;
     width:30%;
     height:240.5%;
     margin-left:70%;
-    margin-top:-120%;
+    margin-top:-7.5%;
    
   }
-
+  
   >h1{
  
 width:40%;
@@ -372,7 +407,20 @@ margin-top:17.5%;
   margin-left:57%;
 }
  >div{
-  
+   
+  >input{
+   background-color:#fff;
+ padding-left:5px;
+
+
+margin-top:-32%;
+width:85%;
+ height:47px;
+  border-radius:5px;
+  margin-left: 10%;
+outline:0;
+
+ }
     display:flex;
 flex-direction:row;
 
@@ -463,6 +511,7 @@ margin-left:-56%
 
 
  }
+}
 
  @media (max-width: 601px){
 
@@ -566,19 +615,7 @@ background-color:#2828FC;
 
 
 
- >input{
-   background-color:#fff;
- padding-left:5px;
-
-
-margin-top:-32%;
-width:85%;
- height:47px;
-  border-radius:5px;
-  margin-left: 10%;
-outline:0;
-
- }
+ 
  .Telput{
   margin-left:10%;
   width:85%;
@@ -587,42 +624,12 @@ outline:0;
  
 
 
+
  }
 
  }
- >h5{
-
-      font-size:30px;
-      font-weight:400;
-      margin-top:-68%;
-      margin-left:5.2%;
-      
-  }
  
-  >button{
-    z-index:999;
-  outline:0;
-box-shadow: 0px 5px 5px #A4A4A4;
-cursor:pointer;
-margin-top:32.6%;
-margin-left:82%;
-
-border-radius:5px;
-background-color:#0000FF;
-color:#fff;
-font-size:20px;
-font-weight:400;
-width:12%;
-height:9.5%;
-&:hover{
-background-color:#2828FC;
-}
-
->a{
-  color:#fff;
-  text-decoration: none;
-}
-}
+ 
 
  
 `;

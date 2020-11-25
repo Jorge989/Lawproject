@@ -11,6 +11,57 @@ justify-content:center;
   margin: 0 auto;
   width: 100%;
   z-index:999;
+  .Menu{
+    z-index:2;
+    position: fixed;
+    flex-direction:column;
+  display: flex;
+  justify-content: center;
+left: 80%;
+top:63px;
+margin-left:22px;
+    height:90px;
+    border-radius:5px;
+    background-color:#F6F6F6;
+    text-decoration:none; 
+    box-shadow: 0px 0px 5px;
+  color:#A4A4A4;
+    width:180px;
+    > li{
+      display: flex;
+      flex-direction:column;
+      outline:0;
+      outline-style: none;
+      text-decoration:none; 
+      border: none;
+      display: inline-block;
+    }
+    >li a{
+      font-size:16.5px;
+      letter-spacing: 2px;
+      margin-left:10px;
+      font-weight:500;
+      color: #0D0D0D;
+      padding:2.5px;
+      outline:0;
+      display: flex;
+      flex-direction:column;
+border: none;
+cursor:pointer;
+text-decoration:none; 
+outline-style: none;
+      display: inline-block;
+      text-decoration:none;
+
+      
+      
+    }
+    li a:hover{
+  color:  var(--bluebtn);
+}
+    
+ 
+  }
 `;
 
 
@@ -149,12 +200,30 @@ transition: width .3s;
 }
 
   >button{
+ 
 display: flex;
 justify-content: center;
 
    
   }
-  
+  >button{
+    
+    outline:0;
+    
+     
+  }
+   img{
+  margin-left: 1160px;
+  outline:0;
+
+  cursor:pointer;
+
+width:55px;
+outline:0;
+   
+
+}
+
   @media (max-width: 601px){
     display: flex;
  
@@ -265,6 +334,8 @@ display: flex;
 margin-left: 760px;
 top: 15px;
 
+
+
   >button{
 
     font-weight: 600;
@@ -299,6 +370,7 @@ margin-left:20px;
 }}
 
 `;
+
 export const Blue = styled.div`
  background-color:#fff;
 
@@ -331,6 +403,7 @@ export const Blue = styled.div`
     margin-top:-15%;
   
   }
+
 >button{
   display:flex;
 margin-top:40px;

@@ -1,15 +1,24 @@
-import React,{useState,useEffect,createContext} from 'react';
+import React,{useState,useEffect,createContext,useRef,useCallback} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory, useParams} from 'react-router-dom'
+import * as Yup from 'yup';
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
  import api from '../../services/api'
-import signIn from '../../services/auth'
+ import { useLocation } from 'react-router-dom';
+import {useAuth} from '../../hooks/auth'
+import  {Form} from '@unform/web'
+import {FormHandles} from '@unform/core'
+import {useToast} from '../../hooks/toast'
 
-
+import getValidationErrors from '../../utils/getValidationErros';
+interface LocationState {
+  token: string;
+}
 interface HistoryUserData {
   senha: string
   email: string
+  nomecompleto: string
 }
 
 
@@ -18,14 +27,70 @@ const Cadastroinfo: React.FC = () => {
   
   
   
-  
-  
-  
+
+
+  const formRef =useRef<FormHandles> (null);
+  const {addToast} = useToast();
+
+  const location = useLocation<LocationState>();
+  const {token} = location.state;
+
   const [isShow, setIsShow] = useState(false);
   const history = useHistory()
-   const data = history.location.state as HistoryUserData
 
-async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+   const data = history.location.state as HistoryUserData
+   const  handleSubmit2 = useCallback(
+    async(data: object): Promise<void> => {
+      try {
+        formRef.current?.setErrors({}); 
+        const schema = Yup.object().shape({
+          nomecompleto: Yup.string().required('Nome obrigatório'),
+          email: Yup.string().required('E-mail obrigatório'),
+          senha: Yup.string().trim().matches(
+            /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+            "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
+          )
+          .min(8, 'No minimo 8 dígitos'),
+          
+  
+        })
+        await schema.validate(data,{
+          abortEarly: false,
+        });
+  
+        
+        // const response = await api.post('usuarios', data);
+        // history.push('/cadastroinfo', response.data);
+        addToast({
+          type: 'sucess',
+          title: 'Cadastro realizado com sucesso'
+  
+        })
+      
+   // }
+        // console.log(response.data);
+        
+      } catch (err) {
+        console.log(err)
+        if (err instanceof Yup.ValidationError){
+          console.log(err)
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+  
+        }
+      
+        addToast({
+          type: 'error',
+          title: 'Erro na cadastro',
+           description: `Ocorreu um erro ao fazer cadastro, tente novamente.${err}`
+         
+        });
+   
+        
+      }
+    }, [addToast]);
+console.log(handleSubmit2)
+async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
   e.preventDefault()
  
   console.log(nomecompleto,telput,nomescritorio,qtd,tipoperfil)
@@ -33,46 +98,7 @@ async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) 
 
 
   
-// try {
-//   const response = await api.post('usuarios',{
-//    email: email,
-//    nome: nomecompleto,
-//    senha: senha,
-//    perfil: tipoperfil,
-//    //telefone: telput,
-//   //  escritorio: nomescritorio,
-//   //  qtd_funcionarios: qtd,
-//  }, {
-//   headers: {'content-type': 'application/json'}
 
-//  });
-//  ;
-//  console.log(response.data);
-//  console.log(response.data.token);
- 
- 
- 
-// } catch (error) {
-//   console.log(error)
-// }
-
-
-
-
-// {
-// 	"tipo_pag": "cartao_credito",
-// 	"plano": "trial",
-// 	"nome": "Escritorio 1",
-// 	"nick_name": "Carlos",
-// 	"email": "fernandoluiz_bit@hotmail.com",
-// 	"telefone": "{% gerarNumeroTelefone false, true, 0, true, 0 %}",
-// 	"quantidade_advogados":"12",
-// 	"tipo_escritorio":"escritorio"
-// }
-
-//passar token e email 
-
-  
 try {
   const response = await api.post('escritorios',{
     nome: nomescritorio,
@@ -84,17 +110,17 @@ try {
     quantidade_advogados: qtd,
     tipo_escritorio:tipoperfil
  }, {
-  headers: {'content-type': 'application/json','Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgxNiwiaWF0IjoxNjA1ODk1MTExLCJleHAiOjE2MDU5ODE1MTF9.UmeIVgUEOB30JKt6e8z9nB6xcGKXN12YLYnghYtuJD8'}
+  headers: {'content-type': 'application/json','Authorization': `Bearer ${token}`}
 
  });
  ;
- console.log(response.data);
- console.log(response.data.token);
- 
- 
+
+
+//  console.log(response.data);
+
  
 } catch (error) {
-  console.log(error)
+  console.log(data)
 }
 
 
@@ -115,7 +141,7 @@ setTipoperfil('escritorio');
   setIsShow(false)
 }
 
-
+console.log(token)
 
 
 
@@ -148,8 +174,9 @@ const [tipoperfil, setTipoperfil] = useState("");
 
 </div>
     
+         
         <Entrar> 
-        <button>
+        <button> 
         Entrar
         </button>
         </Entrar>
@@ -161,11 +188,14 @@ const [tipoperfil, setTipoperfil] = useState("");
 </Header>
 
 <Blue>
+<Form  ref={formRef} onSubmit={handleSubmit2}>
   <h2>Nome completo</h2>
   <h2 className="Telefone">Telefone</h2>
+
 <div>
-  
+
   <input  id="nomecompleto"
+  name="nomecompleto"
               value={nomecompleto} placeholder="Nome completo"
               onChange={(e) => setNomecompleto(e.target.value)}
               />
@@ -198,14 +228,11 @@ const [tipoperfil, setTipoperfil] = useState("");
 
  
 
-    <Draw/>
 <h5>Precisaremos das<br/> seguintes informações</h5>
 <h1>Bem-Vindo !</h1>
+    <Draw/>
 
-<button type="button" onClick={handleSubmit}> Proxímo</button>
-
-
-
+<button type="button"  onClick={() => handleSubmit}> Proxímo</button>
 
 
 
@@ -217,6 +244,9 @@ const [tipoperfil, setTipoperfil] = useState("");
 
 
 
+
+
+</Form>
 </Blue>
 
 

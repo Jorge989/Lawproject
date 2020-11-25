@@ -49,6 +49,7 @@ export const AuthProvider: React.FC = ({children}) =>{
         setData({ token, user})
         console.log(response.data)
         console.log(user)
+       
     };
 
 const signOut = useCallback(() =>{

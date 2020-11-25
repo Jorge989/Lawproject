@@ -6,6 +6,7 @@ import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
 
 
 export const Container = styled.div`
+
 display:flex;
 justify-content:center;
    height: 100%;
@@ -322,6 +323,7 @@ margin-left:0%;
  margin-top:79px;
  
 >Form{
+  
   height:100%;
   >h1{
    
@@ -339,7 +341,7 @@ margin-left:0%;
   >div{
  
  
-
+  
 >h2{
 
 color: #141414;

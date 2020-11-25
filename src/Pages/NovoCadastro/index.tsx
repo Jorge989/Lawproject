@@ -19,22 +19,30 @@ import {Link, useHistory} from 'react-router-dom'
  import Input from '../../Components/Input';
  import Button from '../../Components/Button';
 import {useToast} from '../../hooks/toast'
- 
+
+
+
+
  const NovoCadastro: React.FC = () => {
    const [data, setData] = useState({ });
   const history = useHistory();
   const formRef =useRef<FormHandles> (null);
 const {addToast} = useToast();
 
-  const  handleSubmit = useCallback(async(data: object): Promise<void> => {
+  const  handleSubmit = useCallback(
+    async(data: object): Promise<void> => {
 
     try {
       formRef.current?.setErrors({}); 
       const schema = Yup.object().shape({
         nome: Yup.string().required('Nome obrigatório'),
         email: Yup.string().required('E-mail obrigatório'),
-        senha: Yup.string()
+        senha: Yup.string().trim().matches(
+          /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+          "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
+        )
         .min(8, 'No minimo 8 dígitos'),
+        
 
       })
       await schema.validate(data,{
@@ -42,8 +50,8 @@ const {addToast} = useToast();
       });
 
       
-  
-       await api.post('usuarios', data);
+      const response = await api.post('usuarios', data);
+      history.push('/cadastroinfo', response.data);
       addToast({
         type: 'sucess',
         title: 'Cadastro realizado com sucesso'
@@ -68,7 +76,8 @@ const {addToast} = useToast();
       addToast({
         type: 'error',
         title: 'Erro na cadastro',
-        description: 'Ocorreu um erro ao fazer cadastro, tente novamente.'
+         description: `Ocorreu um erro ao fazer cadastro, tente novamente.${err}`
+       
       });
  
       
@@ -77,8 +86,6 @@ const {addToast} = useToast();
 
 
 
-
-  const [projects, setProjects] = useState([]);
   const [name, setName] = useState('');
   
   const [email, setEmail] = useState('');
@@ -249,7 +256,7 @@ type={inputType}
              
          
  
-         <Button type="submit" onClick={handleSubmit}>Cadastrar</Button>
+ <Button type="submit" onClick={() => handleSubmit}>Cadastrar</Button>
 
 
 </div>
@@ -283,7 +290,7 @@ type={inputType}
     />
 <button><a href="login">Já possui login?</a></button>
 
-<div  className="error" id="error">{errorE}</div>
+
 </Form>
 </Blue>
 
