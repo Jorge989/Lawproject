@@ -18,7 +18,7 @@ interface LocationState {
 interface HistoryUserData {
   senha: string
   email: string
-  nomecompleto: string
+ 
 }
 
 
@@ -42,25 +42,25 @@ const Cadastroinfo: React.FC = () => {
    const  handleSubmit2 = useCallback(
     async(data: object): Promise<void> => {
       try {
-        formRef.current?.setErrors({}); 
-        const schema = Yup.object().shape({
-          nomecompleto: Yup.string().required('Nome obrigatório'),
-          email: Yup.string().required('E-mail obrigatório'),
-          senha: Yup.string().trim().matches(
-            /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
-            "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
-          )
-          .min(8, 'No minimo 8 dígitos'),
+         formRef.current?.setErrors({}); 
+         const schema = Yup.object().shape({
+           nomecompleto: Yup.string().required('Nome obrigatório'),
+           email: Yup.string().required('E-mail obrigatório'),
+           senha: Yup.string().trim().matches(
+             /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
+             "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
+           )
+           .min(8, 'No minimo 8 dígitos'),
           
   
         })
-        await schema.validate(data,{
-          abortEarly: false,
-        });
+         await schema.validate(data,{
+           abortEarly: false,
+         });
   
         
-        // const response = await api.post('usuarios', data);
-        // history.push('/cadastroinfo', response.data);
+         const response = await api.post('usuarios', data);
+         history.push('/cadastroinfo', response.data);
         addToast({
           type: 'sucess',
           title: 'Cadastro realizado com sucesso'
@@ -68,7 +68,7 @@ const Cadastroinfo: React.FC = () => {
         })
       
    // }
-        // console.log(response.data);
+         console.log(response.data);
         
       } catch (err) {
         console.log(err)
@@ -89,7 +89,18 @@ const Cadastroinfo: React.FC = () => {
         
       }
     }, [addToast]);
-console.log(handleSubmit2)
+
+    console.log(handleSubmit2)
+      const testToast = (e:React.MouseEvent <HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        console.log(testToast)
+        console.log(addToast)
+        console.log(useToast)
+        addToast({
+          type: 'sucess',
+          title: 'Cadastro realizado com sucesso'
+        })
+      }
 async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
   e.preventDefault()
  
@@ -188,7 +199,10 @@ const [tipoperfil, setTipoperfil] = useState("");
 </Header>
 
 <Blue>
-<Form  ref={formRef} onSubmit={handleSubmit2}>
+
+  
+<Form  ref={formRef} onSubmit={handleSubmit}>
+<button type="button"  onClick={() => testToast}> Proxímo</button>
   <h2>Nome completo</h2>
   <h2 className="Telefone">Telefone</h2>
 
@@ -232,7 +246,7 @@ const [tipoperfil, setTipoperfil] = useState("");
 <h1>Bem-Vindo !</h1>
     <Draw/>
 
-<button type="button"  onClick={() => handleSubmit}> Proxímo</button>
+<button type="button"  onClick={ handleSubmit}> Proxímo</button>
 
 
 
