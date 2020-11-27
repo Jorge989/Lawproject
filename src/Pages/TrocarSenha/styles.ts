@@ -396,7 +396,7 @@ outline:0;
 
 outline:0;
 height:3%;
-margin-left:63.5%;
+margin-left:65%;
 margin-top: 10%;
 position:absolute;
 }
@@ -434,7 +434,7 @@ margin-left:75%;
 }
 h3{
 
-margin-left:73.5%;
+margin-left:71%;
 margin-top:-115px;
 font-size:27px;
 color:#2B2B2B
@@ -478,7 +478,7 @@ color:#141414;
   }
   h3{
 display:none;
-    margin-left:76%;
+    margin-left:7%;
   margin-top:-110px;
   font-size:27px;
   color:#2B2B2B

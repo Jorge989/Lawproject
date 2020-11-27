@@ -6,6 +6,7 @@ import Layout from './Pages/Layout'
 import Login from './Pages/Login'
 import NovoCadastro from './Pages/NovoCadastro'
 import Cadastroinfo from './Pages/Cadastroinfo'
+import TrocarSenha from './Pages/TrocarSenha'
 import Homepage from './Pages/Home'
 import Dashboard from './Pages/Dashboard'
 
@@ -17,7 +18,9 @@ const Routes: React.FC = () => {
         <Route path="/novocadastro" exact component={NovoCadastro} />
         <Route path="/cadastroinfo" exact component={Cadastroinfo} />
         <Route path="/home" exact component={Homepage} isPrivate/>
+        <Route path="/trocarsenha" exact component={TrocarSenha} isPrivate/>
         <Route path="/dashboard" exact component={Dashboard} isPrivate/>
+        
       </BrowserRouter>
     );
   };

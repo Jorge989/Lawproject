@@ -197,7 +197,13 @@ margin-left: 760px;
 top: 15px;
 
   >button{
-
+>a{
+  color: #000000;
+  text-decoration:none;
+  &:hover{
+          color: var(--bluebtn)
+      }
+}
     font-weight: 600;
     font-size: 19px;
     color: #000000;

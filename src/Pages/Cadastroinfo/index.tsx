@@ -110,29 +110,52 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
 
   
 
-try {
-  const response = await api.post('escritorios',{
-    nome: nomescritorio,
-    tipo_pag: "cartao_credito",
-    plano: "trial",
-    nick_name: nomecompleto,
-    email: data.email,
-    telefone: telput,
-    quantidade_advogados: qtd,
-    tipo_escritorio:tipoperfil
- }, {
-  headers: {'content-type': 'application/json','Authorization': `Bearer ${token}`}
+ if(nomescritorio !=="" && nomecompleto !=="" &&telput !=="" && qtd !=="" && tipoperfil!==""){   
 
- });
- ;
+  try {
+    const response = await api.post('escritorios',{
+      nome: nomescritorio,
+      tipo_pag: "cartao_credito",
+      plano: "trial",
+      nick_name: nomecompleto,
+      email: data.email,
+      telefone: telput,
+      quantidade_advogados: qtd,
+      tipo_escritorio:tipoperfil
+   }, {
+     headers: {'content-type': 'application/json',Authorization: `Bearer ${token}`}
+  
+   });
+   ;
+  
+   addToast({
+    type: 'sucess',
+    title: 'Cadastro realizado com sucesso'
+  })
+  history.push('/login');
+  //  console.log(response.data);
+  
+   
+  } catch (error) {
+    addToast({
+      type: 'error',
+      title: 'Erro na cadastro',
+       description: `Ocorreu um erro ao fazer cadastro, tente novamente.${error}`
+     
+    });
+  
+    console.log(data)
+  }
+  
 
-
-//  console.log(response.data);
-
- 
-} catch (error) {
-  console.log(data)
-}
+    }else{
+      addToast({
+        type: 'error',
+        title: 'Erro na cadastro',
+         description: `Preencha todos os campos`
+       
+      });
+    }
 
 
 
@@ -197,12 +220,12 @@ const [tipoperfil, setTipoperfil] = useState("");
         </button>
         </Entrar2>
 </Header>
+{/* <button type="button"  onClick={testToast}> Proxímo</button> */}
 
 <Blue>
 
   
-<Form  ref={formRef} onSubmit={handleSubmit}>
-<button type="button"  onClick={() => testToast}> Proxímo</button>
+<Form  ref={formRef} onSubmit={testToast}>
   <h2>Nome completo</h2>
   <h2 className="Telefone">Telefone</h2>
 

@@ -1,3 +1,4 @@
+
 import React,{useState,useEffect,useCallback, useRef,InputHTMLAttributes} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {FiLock} from 'react-icons/fi'
@@ -178,10 +179,7 @@ const [inputType, setInputType] = useState("password")
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
-    console.log(response)
-    console.log(response.profileObj)
   }
-
   return (
 
 <Container> 
@@ -239,6 +237,7 @@ type="text"
 placeholder="nome"
  />
 
+ 
 <h2>Email</h2>
   <Input
 
@@ -267,7 +266,7 @@ type={inputType}
 
           {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
           </button>
-<h3>Cadastrar</h3>
+<h3>Alterar Senha</h3>
 
 <h4>ou acesse rapidamente!</h4>
 

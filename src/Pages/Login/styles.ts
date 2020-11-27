@@ -385,8 +385,8 @@ outline:0;
 
 outline:0;
 height:3%;
-margin-left:65%;
-margin-top: 4.4%;
+margin-left:63.6%;
+margin-top: 4.2%;
 position:absolute;
 }
 
@@ -423,7 +423,7 @@ margin-left:75%;
 }
 h3{
 
-margin-left:73.5%;
+margin-left:76%;
 margin-top:-115px;
 font-size:27px;
 color:#2B2B2B

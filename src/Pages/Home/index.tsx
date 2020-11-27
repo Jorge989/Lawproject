@@ -11,6 +11,7 @@ import Person from '../../assets/person.svg'
 
 const Home: React.FC = () => {
   const { signOut} = useAuth();
+  const [tipoperfil, setTipoperfil] = useState("");
   const [isShow, setIsShow] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,15 +23,14 @@ const Home: React.FC = () => {
     setUrl(response.profileObj.imageUrl);
   }
 
-  
   function handleShow({ target }: React.ChangeEvent<HTMLSelectElement>) {
-    if (target.value) {
+    if (target.value ) {
 
   
   
       return setIsShow(true)
     }
- ;
+
     setIsShow(false)
   }
   
@@ -55,7 +55,7 @@ const Home: React.FC = () => {
       Sair
         </button>
         </Entrar>
-          <button onClick={signOut}>
+          <button onClick={() => setIsShow(!isShow)}>
         <img src={Person} alt="React Logo"/>
         </button>
         {/* <Entrar2>
@@ -64,11 +64,14 @@ const Home: React.FC = () => {
         </button>
         </Entrar2> */}
 </Header>
-<div className="Menu">
-<li> <a href="#" className="menu1">Trocar plano</a></li>
-    <li> <a href="#" className="menu2">Trocar senha</a></li>
-    <li> <a href="#" className="menu3">Pagamentos</a></li>
-</div>
+{isShow && (
+ <div className="Menu">
+ <li> <a href="#" className="menu1">Trocar plano</a></li>
+     <li> <a href="/trocarsenha" className="menu2">Trocar senha</a></li>
+     <li> <a href="#" className="menu3">Pagamentos</a></li>
+ </div>
+)}
+
 <Blue>
 <div>
 
