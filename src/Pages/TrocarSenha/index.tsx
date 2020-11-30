@@ -2,8 +2,7 @@
 import React,{useState,useEffect,useCallback, useRef,InputHTMLAttributes} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {FiLock} from 'react-icons/fi'
-import {FiMail} from 'react-icons/fi'
-import {FiUser} from 'react-icons/fi'
+
 import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {FiEyeOff} from 'react-icons/fi'
@@ -11,11 +10,10 @@ import {FiEye} from 'react-icons/fi'
 import { useLocation } from 'react-router-dom';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue, Draw} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
- import { useForm } from "react-hook-form";
- import { useField } from '@unform/core';
+
  import getValidationErrors from '../../utils/getValidationErros';
  import Input from '../../Components/Input';
  import Button from '../../Components/Button';
@@ -84,7 +82,7 @@ interface HistoryUserData {
      
       addToast({
         type: 'sucess',
-        title: 'Cadastro realizado com sucesso'
+        title: 'Senha alterada com sucesso'
 
       })
     
@@ -105,8 +103,8 @@ interface HistoryUserData {
     
       addToast({
         type: 'error',
-        title: 'Erro na cadastro',
-         description: `Ocorreu um erro ao fazer cadastro, tente novamente.${err}`
+        title: 'Erro ao alterar senha',
+         description: `Ocorreu um erro ao alterar senha, tente novamente.${err}`
        
       });
  

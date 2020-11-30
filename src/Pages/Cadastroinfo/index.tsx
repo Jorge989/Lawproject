@@ -1,12 +1,12 @@
-import React,{useState,useEffect,createContext,useRef,useCallback} from 'react';
-import {FiArrowLeft} from 'react-icons/fi'
+import React,{useState,useRef,useCallback} from 'react';
+import {} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
-import {Link, useHistory, useParams} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import * as Yup from 'yup';
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue, Draw,} from './styles';
  import api from '../../services/api'
  import { useLocation } from 'react-router-dom';
-import {useAuth} from '../../hooks/auth'
+
 import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {useToast} from '../../hooks/toast'
@@ -251,10 +251,10 @@ const [tipoperfil, setTipoperfil] = useState("");
   <div className="show" style={{ visibility: isShow ? 'visible' : 'hidden' }}>
   <h2 className="nomeescrit">Nome do escritório </h2>
         <input  id="nomescritorio"
-              value={nomescritorio} className="nomE" type="text" placeholder="nome do escritório"  onChange={(e) => setNomeescritorio(e.target.value)} />
+              value={nomescritorio} className="nomE" type="text" placeholder="Qtd. funcionários"  onChange={(e) => setNomeescritorio(e.target.value)} />
         <h2 className="qtdfuncionarios">Qtd. funcionários</h2>
         <input id="qtd"
-          onChange={(e) => setQtd(e.target.value)}    value={qtd} className="Qtd" type="text" placeholder="Qtd. funcionários" />
+          onChange={(e) => setQtd(e.target.value)}    value={qtd} className="Qtd" type="text" placeholder="Nome de escritório" />
       </div>
     </div>
    

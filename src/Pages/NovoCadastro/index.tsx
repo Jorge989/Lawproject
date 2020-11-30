@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useCallback, useRef,InputHTMLAttributes} from 'react';
+import React,{useState,useEffect,useCallback, useRef} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {FiLock} from 'react-icons/fi'
 import {FiMail} from 'react-icons/fi'
@@ -13,8 +13,7 @@ import {Link, useHistory} from 'react-router-dom'
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
- import { useForm } from "react-hook-form";
- import { useField } from '@unform/core';
+
  import getValidationErrors from '../../utils/getValidationErros';
  import Input from '../../Components/Input';
  import Button from '../../Components/Button';
