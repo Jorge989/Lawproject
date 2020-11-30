@@ -2,19 +2,22 @@ import React,{useState} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {BsFillQuestionOctagonFill } from 'react-icons/bs'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,Googleicon} from './styles';
 import api from '../../services/api'
+
 import {useAuth} from '../../hooks/auth'
 import Person from '../../assets/person.svg'
 
 
 const Home: React.FC = () => {
+  
   const { signOut} = useAuth();
   const [tipoperfil, setTipoperfil] = useState("");
   const [isShow, setIsShow] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const history = useHistory();
   const [url, setUrl] = useState("");
   const responseGoogle = (response:| GoogleLoginResponse |GoogleLoginResponseOffline): void => {
     if (!('profileObj' in response)) return;
@@ -57,7 +60,9 @@ const Home: React.FC = () => {
         </Entrar>
           <button onClick={() => setIsShow(!isShow)}>
         <img src={Person} alt="React Logo"/>
+        
         </button>
+        
         {/* <Entrar2>
         <button>
         Teste Grátis
@@ -68,7 +73,9 @@ const Home: React.FC = () => {
  <div className="Menu">
  <li> <a href="#" className="menu1">Trocar plano</a></li>
      <li> <a href="/trocarsenha" className="menu2">Trocar senha</a></li>
+     
      <li> <a href="#" className="menu3">Pagamentos</a></li>
+     
  </div>
 )}
 

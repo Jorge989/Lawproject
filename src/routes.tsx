@@ -8,7 +8,8 @@ import NovoCadastro from './Pages/NovoCadastro'
 import Cadastroinfo from './Pages/Cadastroinfo'
 import TrocarSenha from './Pages/TrocarSenha'
 import Homepage from './Pages/Home'
-import Dashboard from './Pages/Dashboard'
+// import Dashboard from './Pages/Dashboard'
+import Faq from './Pages/Dashboard'
 
 const Routes: React.FC = () => {
     return (
@@ -17,9 +18,10 @@ const Routes: React.FC = () => {
         <Route path="/login" exact component={Login} />s
         <Route path="/novocadastro" exact component={NovoCadastro} />
         <Route path="/cadastroinfo" exact component={Cadastroinfo} />
+        <Route path="/faq" exact component={Faq} />
         <Route path="/home" exact component={Homepage} isPrivate/>
         <Route path="/trocarsenha" exact component={TrocarSenha} isPrivate/>
-        <Route path="/dashboard" exact component={Dashboard} isPrivate/>
+        {/* <Route path="/dashboard" exact component={Dashboard} isPrivate/> */}
         
       </BrowserRouter>
     );

@@ -9,7 +9,7 @@ const Main: React.FC = () => {
   <Container>
 <Header>
 <div className="cont">
-    <li> <a href="#" className="cool-link">Faq</a></li>
+    <li> <a href="/faq" className="cool-link">Faq</a></li>
     <li> <a href="#" className="cool-link1">Sobre</a></li>
     <li> <a href="#" className="cool-link2">Preços</a></li>
     <li> <a href="#" className="cool-link3">Contate-nos</a></li>

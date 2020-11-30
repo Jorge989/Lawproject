@@ -25,10 +25,6 @@ interface HistoryUserData {
 const Cadastroinfo: React.FC = () => {
   
   
-  
-  
-
-
   const formRef =useRef<FormHandles> (null);
   const {addToast} = useToast();
 

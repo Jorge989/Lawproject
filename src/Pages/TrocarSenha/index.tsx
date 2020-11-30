@@ -8,7 +8,7 @@ import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {FiEyeOff} from 'react-icons/fi'
 import {FiEye} from 'react-icons/fi'
-
+import { useLocation } from 'react-router-dom';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
@@ -21,14 +21,35 @@ import {Link, useHistory} from 'react-router-dom'
  import Button from '../../Components/Button';
 import {useToast} from '../../hooks/toast'
 
+interface LocationState {
+  token: string;
+}
+interface HistoryUserData {
+  senha: string;
+  user: object;
 
-
+ 
+}
 
  const NovoCadastro: React.FC = () => {
-   const [data, setData] = useState({ });
-  const history = useHistory();
+   
+   const [data2, setData] = useState({ });
+   const location = useLocation<LocationState>();
+   const history = useHistory();
+  //  const {token} = history.location.state;
+  const data = history.location.state as HistoryUserData
   const formRef =useRef<FormHandles> (null);
-const {addToast} = useToast();
+  const {addToast} = useToast();
+  // Aqui brow o getItem pode retornar String ou NULL
+  // e esse cara, QUE DEVERIA SER UM OBJETO, vem string
+  const user = localStorage.getItem('@ActionLaw: user')
+  const token  = localStorage.getItem('@ActionLaw: token')
+
+  // Então pra pegar o id do usuário eu tenho que dar um PARSE
+  // e transformar ele em um objeto JSON pra depois desestruturar
+  // só que o TS EXIGE que tenha validação nisso
+  // então eu tenho que validar se o "user" !== null
+  const {id_usuario} = user ? JSON.parse(user) : ''
 
   const  handleSubmit = useCallback(
     async(data: object): Promise<void> => {
@@ -36,8 +57,7 @@ const {addToast} = useToast();
     try {
       formRef.current?.setErrors({}); 
       const schema = Yup.object().shape({
-        nome: Yup.string().required('Nome obrigatório'),
-        email: Yup.string().required('E-mail obrigatório'),
+     
         senha: Yup.string().trim().matches(
           /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
           "senha deve conter pelo menos 8 caracteres, um número e um caractere especial"
@@ -50,15 +70,24 @@ const {addToast} = useToast();
         abortEarly: false,
       });
 
-      
-      const response = await api.post('usuarios', data);
-      history.push('/cadastroinfo', response.data);
+      // Daí aqui 👇👇👇 você tava chamando a URL errada por 2 motivos
+      // 1° /usuarios/trocar_senha?OIAUDHISUHADISUDHAISJKDNAKSJDAIUSDH
+      // 2° Porque primeiramente aquela variável 'id_usuario' estava com o valor
+      //    de um objeto INTEIRO, por isso desestruturei ela
+      //    Depois arrumei a chamada para: /usuarios/trocar_senha/${id_usuario}
+      const response = await api.put(`usuarios/trocar_senha/${id_usuario}`,{},{
+        // Aqui eu ACHO que tava certo, MAS pesquisei lá na documentação do axios pra
+        // ter certeza
+        headers: {'content-type': 'application/json', 'Authorization': `Bearer ${token}`}
+     
+      });
+     
       addToast({
         type: 'sucess',
         title: 'Cadastro realizado com sucesso'
 
       })
-      history.push('/cadastroinfo', (data))
+    
 
       
 
@@ -148,7 +177,7 @@ const [inputType, setInputType] = useState("password")
  <i onClick={togglePasswordVisiblity}>{eye}</i>
  
     useEffect(() =>{
-      api.get('escritorios/listar').then(response => {
+      api.get('usuarios/').then(response => {
         console.log(response.data)
       })
     },[]);
@@ -225,10 +254,10 @@ const [inputType, setInputType] = useState("password")
 
 
   <Link to="/">
-  <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "25px",marginTop:"-60px" }}  />
+  <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "440px",marginTop:"-160px" }}  />
   </Link>
 
-  <h2>Nome</h2>
+  {/* <h2>Nome</h2>
   <Input
 
 name="nome"
@@ -245,8 +274,8 @@ name="email"
 icon={FiMail}
 type="email"
 placeholder="email"
- />
-    <h2>Senha</h2>       
+ /> */}
+    <h2>Nova Senha</h2>       
   <Input
 name="senha"
 icon={FiLock}
@@ -257,18 +286,18 @@ type={inputType}
              
          
  
- <Button type="submit" onClick={() => handleSubmit}>Cadastrar</Button>
+ <Button type="submit" onClick={() => handleSubmit}>Confirmar</Button>
 
 
 </div>
-<h1>Bem-Vindo !</h1>
+<h1>Alterar Senha</h1>
 <button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
           {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
           </button>
-<h3>Alterar Senha</h3>
+{/* <h3>Alterar Senha</h3> */}
 
-<h4>ou acesse rapidamente!</h4>
+{/* <h4>ou acesse rapidamente!</h4> */}
 
 
 
@@ -277,7 +306,7 @@ type={inputType}
 
 
 
-
+{/* 
 <GoogleLogin 
     clientId="211368015593-fucd3no6bv208m9iuf809l9f72ulmejr.apps.googleusercontent.com"
     render={renderProps => (
@@ -289,7 +318,7 @@ type={inputType}
     cookiePolicy={'single_host_origin'}
     
     />
-<button><a href="login">Já possui login?</a></button>
+<button><a href="login">Já possui login?</a></button> */}
 
 
 </Form>

@@ -311,29 +311,29 @@ margin-left:20px;
 export const Blue = styled.div`
 
 background-color:#4040FF;
- background-image: linear-gradient( to right,#4040FF  60%, #EBEBEB 60%, #EBEBEB );
+ background-image: linear-gradient( to bottom,#4040FF  30%, #EBEBEB 30%, #EBEBEB );
 
  border-radius:5px;
  box-shadow: -4px 30px 30px  #7B7B7B;
 margin-left:0%;
  
- width:70%;
+ width:35%;
  height:480px;
 
  margin-top:79px;
  
 >Form{
-  
+  margin-left:-80%;
   height:100%;
   >h1{
    
    width:40%;
    
    color: #fff;
-   font-size: 60px;
+   font-size: 55px;
    font-weight:200;
-   margin-left: 15%;
-   margin-top: -53%;
+   margin-left: 55%;
+   margin-top: -72%;
    
    
    
@@ -358,7 +358,8 @@ margin-top:5px;
 
 z-index:999;
 width:100%;
-margin-top:8%;
+margin-top:20%;
+margin-left:-6%;
 height:100%;
  
 
@@ -383,10 +384,10 @@ outline:0;
 
  >svg{
 
- width:30%;
+ width:22%;
  height:60%;
- margin-left:0px;
- margin-top:-182px;
+ margin-left:44.4%;
+ margin-top:16.5%;
 
 }
 
@@ -396,8 +397,8 @@ outline:0;
 
 outline:0;
 height:3%;
-margin-left:65%;
-margin-top: 10%;
+margin-left:53%;
+margin-top: 7.1%;
 position:absolute;
 }
 
