@@ -2,11 +2,11 @@
 [build]
     base = "/"
     publish = "build/"
-    command = CI= npm run build
+  
 [build.environment]
     NODE_OPTION = "--max_old_space_size=4096"
 [context.master]
-    command = "npm run build"
+    CI= npm run build
 [[redirects]]
     from="/*"
     to="/index.html"
