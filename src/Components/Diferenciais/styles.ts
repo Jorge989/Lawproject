@@ -154,7 +154,7 @@ font-size: 19px;
 
 export const Cards2 = styled.div`
 margin-top:-70%;
-margin-left: 200px;
+margin-left: 178px;
 display:flex;
 width:75%;
 justify-content:space-between;
