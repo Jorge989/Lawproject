@@ -13,7 +13,16 @@ justify-content:center;
   margin: 0 auto;
   width: 100%;
   z-index:999;
-  
+ >svg{
+       
+    display:flex;
+    position:fixed;
+ width:45%;
+ margin-top:-40%;
+ margin-left:-50%;
+
+ } 
+
 
 `;
 export const Header = styled.div`
@@ -315,23 +324,53 @@ export const Blue = styled.div`
 
  
  width:90%;
- height:600px;
+ height:200px;
 
  margin-top:80px;
 
+
+
  >svg{
- position:absolute;
- width:45%;
- margin-top:-43%;
- margin-left:20%;
+     
+     display:flex;
+    position:fixed;
+ width:55%;
+ margin-top:-70%;
+ margin-left:70%;
+
 
    
+  }
+  >div{
+    >h1{
+      
+color:#0058FF;
+font-weight:400;
+    width:100%;
+    margin-left:3%;
+    margin-top:-1%;
+}
+
+
+      margin-left:19%;
+      z-index:999;
+      margin-top:2%;
+>button{
+
+    z-index:999;
+cursor: pointer;
+width:7%;
+height:10%;
+outline:0;
+margin-left:1%;
+margin-top:-2%;
+}
   }
 `;
 export const Draw = styled(CinzaIcon)`
 >svg{
     margin-left:20%;
-    
+
 }
 width:20%;
  

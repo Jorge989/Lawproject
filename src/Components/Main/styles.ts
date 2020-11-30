@@ -21,6 +21,22 @@ z-index:2;
   display: flex;
   align-items: center;
  width: 100%;
+.menuhamburg{
+  display:none;
+   >button{
+     cursor:pointer;
+     outline:0;
+   }
+  @media (max-width: 601px){
+  
+  display: flex;
+
+  justify-content: center;
+  width: 20%;
+  margin-left: -20%;
+  margin-top:-2%;
+  }
+}
 
 >div{
   position: absolute;

@@ -59,7 +59,7 @@ export const Banner2 = styled(Cinza)`
 `;
 export const Cards = styled.div`
 margin-top: -45%;
-margin-left: 200px;
+margin-left: 178px;
 display:flex;
 justify-content:space-between;
 padding: 1px 1px 1px;
