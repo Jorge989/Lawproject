@@ -3,7 +3,7 @@ import {FiArrowLeft} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link} from 'react-router-dom'
 import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
-import api from '../../services/api'
+
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import {FiMail} from 'react-icons/fi'

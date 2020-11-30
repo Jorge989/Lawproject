@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {BsFillQuestionOctagonFill } from 'react-icons/bs'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
-import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw,Googleicon} from './styles';
-import api from '../../services/api'
+import { useHistory} from 'react-router-dom'
+ import { Container,Header,Entrar ,Blue, Draw} from './styles';
+
 
 import {useAuth} from '../../hooks/auth'
 import Person from '../../assets/person.svg'

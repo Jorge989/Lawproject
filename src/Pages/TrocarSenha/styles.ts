@@ -1,4 +1,4 @@
-import styled ,{css}from 'styled-components';
+import styled from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
 import {Go} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
