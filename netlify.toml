@@ -2,7 +2,7 @@
 [build]
     base = "/"
     publish = "build/"
-[context.main]
+[context.master]
     command = "npm run build"
 [[redirects]]
     from="/*"
