@@ -4,7 +4,36 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+  .Menu{
+    border-radius:2px;
+    z-index:999;
+    background-color:#191919;
+    width:100%;
+    height:300px;
+    margin-top: -80%;
+    
+  animation: drop 0.5s ease forwards;
+  @keyframes drop{
+    0%{transform: translateX(-110px)}
+    70%{transform: translateX(20px)}
+    100%{transform: translateX(0px)}
+  }
+    >li{
+      margin-top:5.5%;
+      margin-left:3%;
+       border-bottom: 1px solid #FFF;
+       padding-bottom:15px;
+      list-style-type: none;
+      text-decoration:none;
+      >a{
+       
+        text-decoration:none;
+        color: #fff;
+        font-size: 27px;
+        
+      }
+    }
+  }
 
 `;
 export const Header = styled.div`
@@ -22,6 +51,7 @@ z-index:2;
   align-items: center;
  width: 100%;
 .menuhamburg{
+  
   display:none;
    >button{
      cursor:pointer;

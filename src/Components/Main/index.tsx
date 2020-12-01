@@ -38,21 +38,24 @@ import ProfilePage from '../Profilepage';
      
 </Header>
   
+      
          <ProfilePage>
 
         </ProfilePage> 
-        {isShow && (
-         <div className="Menu">
-         <li> <a href="#" className="menu1">Trocar plano</a></li>
-             <li> <a href="/trocarsenha" className="menu2">Trocar senha</a></li>
-             
-             <li> <a href="#" className="menu3">Pagamentos</a></li>
-             
-         </div>
-        )}
  {/* <BottomMenu>
 
 </BottomMenu>  */}
+  {isShow && (
+         <div className="Menu">
+         <li> <a href="#" className="menu1">Entrar</a></li>
+             <li> <a href="/trocarsenha" className="menu2">Faq</a></li>
+             
+             <li> <a href="#" className="menu3">Preços</a></li>
+             
+             <li> <a href="#" className="menu3">Contate-nos</a></li>
+             
+         </div>
+        )}
   </Container> 
   
   )

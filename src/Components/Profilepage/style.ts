@@ -24,7 +24,7 @@ height: min (33vw, 199px);
 
     flex-direction: column;
 margin-left: 30px;
-background-color: #2e8;
+/* background-color: #2e8; */
 
     width: 100%;
   }}
@@ -80,7 +80,7 @@ width: 40%;
  
     flex-direction: column;
 margin-left: 5px;
-background-color: #2e2e2e;
+/* background-color: #2e2e2e; */
 
     width: 30%;
 >h1{
