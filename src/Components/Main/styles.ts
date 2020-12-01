@@ -1,4 +1,4 @@
-import styled,{css} from 'styled-components';
+import styled from 'styled-components';
 import {Lock} from '../../styles/icons'
 export const Container = styled.div`
   display: flex;

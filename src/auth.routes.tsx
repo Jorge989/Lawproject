@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Route, BrowserRouter,Switch} from 'react-router-dom';
+import {Route, BrowserRouter} from 'react-router-dom';
 import Layout from './Pages/Layout'
 import Login from './Pages/Login'
 import NovoCadastro from './Pages/NovoCadastro'

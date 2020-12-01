@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {FiMenu} from 'react-icons/fi'
 import ProfilePage from '../Profilepage';
- import { Container, Header,Lockicon1,Entrar,BottomMenu,Entrar2 } from './styles';
+ import { Container, Header,Lockicon1,Entrar,Entrar2 } from './styles';
  const Main: React.FC = () => {
   const [isShow, setIsShow] = useState(false);
   return (
