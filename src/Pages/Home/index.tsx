@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import {BsFillQuestionOctagonFill } from 'react-icons/bs'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
@@ -42,8 +42,26 @@ const Home: React.FC = () => {
   const responseGoogleFailed = (response: GoogleLoginResponse): void => {
   console.log(response);
       }
+      useEffect(() => {
+        const script = document.createElement('script');
+        script.src="https://embed.tawk.to/5fc6bb0ba1d54c18d8ef660f/default";
+        script.async=true;
+        script.charset="UTF-8";
+        script.setAttribute('crossorigin','*');
+        document.body.appendChild(script);
+        
+        return () => {
+        document.body.removeChild(script);
+        }
+        }, []);
   return (
+    
+
+
+      
     <Container>
+
+
 <Header>
 <div className="cont">
     <li> <a href="#" className="cool-link">Faq</a></li>
@@ -67,7 +85,7 @@ const Home: React.FC = () => {
         <button>
         Teste Grátis
         </button>
-        </Entrar2> */}
+      </Entrar2> */}
 </Header>
 {isShow && (
  <div className="Menu">
@@ -85,6 +103,7 @@ const Home: React.FC = () => {
 <h1>Inova</h1>
 <h3>Advocacia</h3>
  
+      
  
 
   
@@ -108,6 +127,7 @@ const Home: React.FC = () => {
 
 
   )
+  
 }
 
 export default Home;

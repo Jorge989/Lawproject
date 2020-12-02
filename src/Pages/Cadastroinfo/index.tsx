@@ -9,7 +9,7 @@ import * as Yup from 'yup';
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,} from './styles';
  import api from '../../services/api'
  import { useLocation } from 'react-router-dom';
-
+ import {useAuth} from '../../hooks/auth'
 import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {useToast} from '../../hooks/toast'
@@ -24,9 +24,12 @@ interface HistoryUserData {
  
 }
 
-
+interface SigInFormData{
+  email: string;
+  senha: string;
+}
 const Cadastroinfo: React.FC = () => {
-  
+  const { signIn} = useAuth();
   
   const formRef =useRef<FormHandles> (null);
   const {addToast} = useToast();
@@ -57,7 +60,7 @@ const Cadastroinfo: React.FC = () => {
            abortEarly: false,
          });
   
-        
+      
          const response = await api.post('usuarios', data);
          history.push('/cadastroinfo', response.data);
         addToast({
@@ -107,13 +110,13 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
  console.log(history.location.state)
 
 
-  
-
+ 
+ 
  if(nomescritorio !=="" && nomecompleto !=="" &&telput !=="" && qtd !=="" && tipoperfil!==""){   
-
-  try {
-    const response = await api.post('escritorios',{
-      nome: nomescritorio,
+   
+   try {
+     const response = await api.post('escritorios',{
+       nome: nomescritorio,
       tipo_pag: "cartao_credito",
       plano: "trial",
       nick_name: nomecompleto,
@@ -121,40 +124,46 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
       telefone: telput,
       quantidade_advogados: qtd,
       tipo_escritorio:tipoperfil
-   }, {
-     headers: {'content-type': 'application/json',Authorization: `Bearer ${token}`}
-  
-   });
-   ;
-  
-   addToast({
-    type: 'sucess',
-    title: 'Cadastro realizado com sucesso'
-  })
-  history.push('/login');
-  //  console.log(response.data);
-  
-   
+    }, {
+      headers: {'content-type': 'application/json',Authorization: `Bearer ${token}`}
+      
+    });
+    ;
+    
+    
+    addToast({
+      type: 'sucess',
+      title: 'Cadastro realizado com sucesso'
+    })
+    history.push('/home');
+    
+await signIn({
+  email: data.email,
+  senha: data.senha,
+ });
+    //  console.log(response.data);
+    
+    
   } catch (error) {
     addToast({
       type: 'error',
       title: 'Erro na cadastro',
-       description: `Ocorreu um erro ao fazer cadastro, tente novamente.${error}`
-     
+      description: `Ocorreu um erro ao fazer cadastro, tente novamente.${error}`
+      
     });
-  
+    
     console.log(data)
   }
   
-
-    }else{
-      addToast({
-        type: 'error',
-        title: 'Erro na cadastro',
-         description: `Preencha todos os campos`
-       
-      });
-    }
+  
+}else{
+  addToast({
+    type: 'error',
+    title: 'Erro na cadastro',
+    description: `Preencha todos os campos`
+    
+  });
+}
 
 
 

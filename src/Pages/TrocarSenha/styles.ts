@@ -310,11 +310,11 @@ margin-left:20px;
 
 export const Blue = styled.div`
 
-background-color:#4040FF;
- background-image: linear-gradient( to bottom,#4040FF  30%, #EBEBEB 30%, #EBEBEB );
+background-color:#EBEBEB;
+ /* background-image: linear-gradient( to bottom,#4040FF  30%, #EBEBEB 30%, #EBEBEB ); */
 
  border-radius:5px;
- box-shadow: -4px 30px 30px  #7B7B7B;
+ /* box-shadow: -4px 30px 30px  #7B7B7B; */
 margin-left:0%;
  
  width:35%;
@@ -323,16 +323,19 @@ margin-left:0%;
  margin-top:79px;
  
 >Form{
+  .btn{
+    margin-top:19px;
+  }
   margin-left:-80%;
   height:100%;
   >h1{
    
    width:40%;
    
-   color: #fff;
-   font-size: 55px;
-   font-weight:200;
-   margin-left: 55%;
+   color: #141111;
+   font-size: 35px;
+   font-weight:bold;
+   margin-left: 59.5%;
    margin-top: -72%;
    
    
@@ -359,7 +362,7 @@ margin-top:5px;
 z-index:999;
 width:100%;
 margin-top:20%;
-margin-left:-6%;
+margin-left:-7.5%;
 height:100%;
  
 
@@ -383,7 +386,7 @@ outline:0;
  }
 
  >svg{
-
+display:none;
  width:22%;
  height:60%;
  margin-left:44.4%;
@@ -397,13 +400,14 @@ outline:0;
 
 outline:0;
 height:3%;
-margin-left:53%;
-margin-top: 7.1%;
+margin-left:52%;
+margin-top: 9.1%;
 position:absolute;
 }
 
 
 >button{
+  
 display:flex;
 margin-top:2%;
 margin-left:73.4%;

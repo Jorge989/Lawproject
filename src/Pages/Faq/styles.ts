@@ -317,7 +317,23 @@ justify-content: center;
 `;
 export const Blue = styled.div`
 
+.Menu{
+  display:flex;
+  justify-content:center;
+  border-radius:3px;
+  max-width:90%;
 
+background-color:red;
+  opacity:0.4;
+z-index:999;
+>h1{
+  display:flex;
+  max-width:90%;
+  justify-content:center;
+  font-size:25px;
+  
+}
+}
 
  /* border-radius:5px;
  box-shadow: -4px 30px 30px  #7B7B7B; */

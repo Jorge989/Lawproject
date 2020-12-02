@@ -26,6 +26,7 @@ interface HistoryUserData {
   senha: string;
   user: object;
 
+
  
 }
 
@@ -85,7 +86,7 @@ interface HistoryUserData {
         title: 'Senha alterada com sucesso'
 
       })
-    
+      history.push('/home');
 
       
 
@@ -252,7 +253,7 @@ const [inputType, setInputType] = useState("password")
 
 
   <Link to="/">
-  <FiArrowLeft size={50} style={{color: "#fff", width: "30px", position: "absolute",marginLeft: "440px",marginTop:"-160px" }}  />
+  <FiArrowLeft size={50} style={{color: "#141111", width: "30px", position: "absolute",marginLeft: "460px",marginTop:"-160px" }}  />
   </Link>
 
   {/* <h2>Nome</h2>
@@ -284,7 +285,7 @@ type={inputType}
              
          
  
- <Button type="submit" onClick={() => handleSubmit}>Confirmar</Button>
+ <Button  className="btn"type="submit" onClick={() => handleSubmit}>Confirmar</Button>
 
 
 </div>
