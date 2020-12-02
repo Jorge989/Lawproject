@@ -1,4 +1,4 @@
-import styled ,{css}from 'styled-components';
+import styled from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
 import {Go} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
@@ -310,30 +310,33 @@ margin-left:20px;
 
 export const Blue = styled.div`
 
-background-color:#4040FF;
- background-image: linear-gradient( to right,#4040FF  60%, #EBEBEB 60%, #EBEBEB );
+background-color:#EBEBEB;
+ /* background-image: linear-gradient( to bottom,#4040FF  30%, #EBEBEB 30%, #EBEBEB ); */
 
  border-radius:5px;
- box-shadow: -4px 30px 30px  #7B7B7B;
+ /* box-shadow: -4px 30px 30px  #7B7B7B; */
 margin-left:0%;
  
- width:70%;
+ width:35%;
  height:480px;
 
  margin-top:100px;
  
 >Form{
-  
+  .btn{
+    margin-top:19px;
+  }
+  margin-left:-80%;
   height:100%;
   >h1{
    
    width:40%;
    
-   color: #fff;
-   font-size: 60px;
-   font-weight:200;
-   margin-left: 15%;
-   margin-top: -53%;
+   color: #141111;
+   font-size: 35px;
+   font-weight:bold;
+   margin-left: 59.5%;
+   margin-top: -72%;
    
    
    
@@ -345,7 +348,7 @@ margin-left:0%;
 >h2{
 
 color: #141414;
-  width:20%;
+  width:40%;
   height:20.7px;
   display:flex;
  
@@ -358,7 +361,8 @@ margin-top:5px;
 
 z-index:999;
 width:100%;
-margin-top:8%;
+margin-top:20%;
+margin-left:-7.5%;
 height:100%;
  
 
@@ -382,27 +386,28 @@ outline:0;
  }
 
  >svg{
-
- width:30%;
+display:none;
+ width:22%;
  height:60%;
- margin-left:0px;
- margin-top:-182px;
+ margin-left:44.4%;
+ margin-top:16.5%;
 
 }
 
 
 >.eye{
   z-index:999;
-
+display:none;
 outline:0;
 height:3%;
-margin-left:63.5%;
-margin-top: 10%;
+margin-left:52%;
+margin-top: 9.1%;
 position:absolute;
 }
 
 
 >button{
+  
 display:flex;
 margin-top:2%;
 margin-left:73.4%;
@@ -434,7 +439,7 @@ margin-left:75%;
 }
 h3{
 
-margin-left:73.5%;
+margin-left:71%;
 margin-top:-115px;
 font-size:27px;
 color:#2B2B2B
@@ -478,7 +483,7 @@ color:#141414;
   }
   h3{
 display:none;
-    margin-left:76%;
+    margin-left:7%;
   margin-top:-110px;
   font-size:27px;
   color:#2B2B2B

@@ -1,7 +1,7 @@
 
 
 
-import React,{useState,useRef,useCallback} from 'react';
+import React,{useState,useRef,useCallback, useContext} from 'react';
 import {} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import { useHistory} from 'react-router-dom'
@@ -9,7 +9,7 @@ import * as Yup from 'yup';
  import { Container,Header,Entrar,Entrar2 ,Blue, Draw,} from './styles';
  import api from '../../services/api'
  import { useLocation } from 'react-router-dom';
- import {useAuth} from '../../hooks/auth'
+ import {AuthContext, useAuth} from '../../hooks/auth'
 import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {useToast} from '../../hooks/toast'
@@ -18,29 +18,50 @@ import getValidationErrors from '../../utils/getValidationErros';
 interface LocationState {
   token: string;
 }
-interface HistoryUserData {
+
+interface Usuario {
+  date_insert: string;
+email: string;
+id_usuario: number;
+ip_insert: string;
+nome: string;
+status_usuario:string;
+time_insert: string;
+tipo_conta: string;
+user_insert: string;
+}
+interface LoginDTO {
   senha: string
   email: string
- 
+  nome: string
 }
+
+interface UserData {
+  token: string;
+  usuario: Usuario;
+}
+
+interface PushedHistory { 
+  loginDTO: LoginDTO;
+  userData: UserData;
+}
+
 
 interface SigInFormData{
   email: string;
   senha: string;
 }
 const Cadastroinfo: React.FC = () => {
-  const { signIn} = useAuth();
+  const { signIn } = useAuth();
   
   const formRef =useRef<FormHandles> (null);
   const {addToast} = useToast();
 
-  const location = useLocation<LocationState>();
-  const {token} = location.state;
 
   const [isShow, setIsShow] = useState(false);
   const history = useHistory()
 
-   const data = history.location.state as HistoryUserData
+   const data = history.location.state as PushedHistory
    const  handleSubmit2 = useCallback(
     async(data: object): Promise<void> => {
       try {
@@ -92,7 +113,6 @@ const Cadastroinfo: React.FC = () => {
       }
     }, [addToast]);
 
-    console.log(handleSubmit2)
       const testToast = (e:React.MouseEvent <HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         console.log(testToast)
@@ -112,23 +132,45 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
 
  
  
- if(nomescritorio !=="" && nomecompleto !=="" &&telput !=="" && qtd !=="" && tipoperfil!==""){   
+  if( nomecompleto !=="" &&telput !==""  && tipoperfil!=="" ){   
    
    try {
      const response = await api.post('escritorios',{
-       nome: nomescritorio,
+      nome: nomescritorio !== "" ? nomescritorio : nomecompleto,
       tipo_pag: "cartao_credito",
       plano: "trial",
       nick_name: nomecompleto,
-      email: data.email,
+      email: data.loginDTO.email,
       telefone: telput,
-      quantidade_advogados: qtd,
+      quantidade_advogados: qtd !== "" ? qtd : 0,
       tipo_escritorio:tipoperfil
     }, {
-      headers: {'content-type': 'application/json',Authorization: `Bearer ${token}`}
+      headers: {'content-type': 'application/json',Authorization: `Bearer ${data.userData.token}`}
       
     });
     ;
+        
+await signIn({
+  email: data.loginDTO.email,
+  senha: data.loginDTO.senha,
+ });
+
+    await api.put(
+      `usuarios/${data.userData.usuario.id_usuario}`,
+      {
+        nome:data.userData.usuario.nome,
+        email: data.userData.usuario.email,
+        perfil: tipoperfil === "autonomo" ? "autonomo" : "admin",
+      },
+      {
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${data.userData.token}`,
+        },
+      }
+    );
+
+    console.log(response.data)
     
     
     addToast({
@@ -136,11 +178,7 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
       title: 'Cadastro realizado com sucesso'
     })
     history.push('/home');
-    
-await signIn({
-  email: data.email,
-  senha: data.senha,
- });
+
     //  console.log(response.data);
     
     
@@ -156,16 +194,16 @@ await signIn({
   }
   
   
-}else{
-  addToast({
-    type: 'error',
-    title: 'Erro na cadastro',
-    description: `Preencha todos os campos`
+ }else{
+   addToast({
+     type: 'error',
+     title: 'Erro na cadastro',
+   description: `Preencha todos os campos`
     
-  });
-}
+   });
 
 
+  }
 
 
 
@@ -183,7 +221,6 @@ setTipoperfil('escritorio');
   setIsShow(false)
 }
 
-console.log(token)
 
 
 
@@ -204,6 +241,7 @@ const [tipoperfil, setTipoperfil] = useState("");
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
   }
+  console.log(tipoperfil)
   return (
 
 <Container>
@@ -233,7 +271,7 @@ const [tipoperfil, setTipoperfil] = useState("");
 <Blue>
 
   
-<Form  ref={formRef} onSubmit={testToast}>
+<Form  ref={formRef} onSubmit={handleSubmit}>
   <h2>Nome completo</h2>
   <h2 className="Telefone">Telefone</h2>
 
@@ -259,6 +297,8 @@ const [tipoperfil, setTipoperfil] = useState("");
         <option id="escritorio"
               value='escritorio'>Escritorio</option>
       </select>
+
+
 
   <div className="show" style={{ visibility: isShow ? 'visible' : 'hidden' }}>
   <h2 className="nomeescrit">Nome do escritório </h2>

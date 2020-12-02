@@ -10,15 +10,17 @@ import TrocarSenha from './Pages/TrocarSenha'
 import Homepage from './Pages/Home'
  import Dashboard from './Pages/Dashboard'
 import Faq from './Pages/Faq'
+import Esquecisenha from './Pages/EsqueciSenha'
 
 const Routes: React.FC = () => {
     return (
       <BrowserRouter>
         <Route path="/" exact component={Layout} />
-        <Route path="/login" exact component={Login} />s
+        <Route path="/login" exact component={Login} />
         <Route path="/novocadastro" exact component={NovoCadastro} />
         <Route path="/cadastroinfo" exact component={Cadastroinfo} />
         <Route path="/faq" exact component={Faq} />
+        <Route path="/esquecisenha" exact component={Esquecisenha} />
         <Route path="/home" exact component={Homepage} isPrivate/>
         <Route path="/trocarsenha" exact component={TrocarSenha} isPrivate/>
         { <Route path="/dashboard" exact component={Dashboard} isPrivate/>}

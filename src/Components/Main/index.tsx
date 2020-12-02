@@ -31,8 +31,10 @@ import ProfilePage from '../Profilepage';
         </button>
         </Entrar>
         <Entrar2>
-        <button>
+        <button><a href="/novocadastro">
+
         Teste Grátis
+        </a>
         </button>
         </Entrar2>
      

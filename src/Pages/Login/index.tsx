@@ -175,6 +175,7 @@ placeholder="senha"
     
     />
 <button><a href="novocadastro">Cadastre-se</a></button>
+<button className="Esqueceu"><a href="esquecisenha">Esqueceu sua senha?</a></button>
 </Form>
 </Blue>
 

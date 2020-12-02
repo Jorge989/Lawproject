@@ -312,6 +312,10 @@ export const Blue = styled.div`
  margin-top:100px;
 
  >Form{
+   .Esqueceu{
+     margin-top:-1%;
+     margin-left:70.5%;
+   }
   height:100%;
   >h1{
    
@@ -393,7 +397,7 @@ position:absolute;
 
 >button{
 display:flex;
-margin-top:2%;
+margin-top:5%;
 margin-left:74.8%;
 font-size:20px;
 cursor: pointer;

@@ -30,7 +30,7 @@ Estamos focados em facilitar a vida dos profissionais da lei.<br/>
 Deseja ver na prática?
 </h2>
      <EditiButton>
-       <a href="/login">
+       <a href="/novocadastro">
        Testar Grátis
        </a>
     </EditiButton> 
