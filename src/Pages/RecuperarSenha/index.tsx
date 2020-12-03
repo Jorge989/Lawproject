@@ -2,6 +2,7 @@
 import React,{useState,useEffect,useCallback,FormEvent ,useRef,InputHTMLAttributes} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {FiMail} from 'react-icons/fi'
+import {FiLock} from 'react-icons/fi'
 
 import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
@@ -31,7 +32,7 @@ interface HistoryUserData {
  
 }
 
- const EsqueciSenha: React.FC = () => {
+ const RecuperarSenha: React.FC = () => {
    
    const [data2, setData] = useState({ });
    const location = useLocation<LocationState>();
@@ -255,13 +256,23 @@ onChange={(e) => setMail(e.target.value)}
   />
  
              
-         
+ 
+ <h2>Informar senha</h2>    
+ <Input
+
+name="senha"
+value={senha}
+icon={FiLock}
+type={inputType}
+onChange={(e) => setSenha(e.target.value)}
+placeholder="senha"
+ />       
  
  <Button  className="btn"type="submit" onClick={handleSubmit}>Confirmar</Button>
 
 
 </div>
-<h1>Esqueçi Senha</h1>
+<h1>Definir Nova Senha</h1>
 <button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
           {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
@@ -301,4 +312,4 @@ onChange={(e) => setMail(e.target.value)}
 }
  
 
-export default EsqueciSenha;
+export default RecuperarSenha;
