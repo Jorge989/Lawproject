@@ -148,7 +148,7 @@ interface HistoryUserData {
           
       addToast({
         type: 'sucess',
-        title: 'Cadastro realizado com sucesso'
+        title: 'você receberá em breve um e-mail com link para redefinir sua senha'
       })
     
       
@@ -156,7 +156,7 @@ interface HistoryUserData {
       addToast({
         type: 'error',
         title: 'Erro na cadastro',
-        description: `Ocorreu um erro ao fazer cadastro, tente novamente.${error}`
+        description: `Ocorreu um erro ao informar o e-mail, tente novamente`
         
       });
       
@@ -244,7 +244,7 @@ const [inputType, setInputType] = useState("password")
   </Link>
 
 
-    <h2>Informar endereçe E-mail</h2>       
+    <h2>Informar endereço de e-mail</h2>       
   <Input
 name="email"
 value={mail}
