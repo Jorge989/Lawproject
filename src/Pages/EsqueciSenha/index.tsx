@@ -261,7 +261,7 @@ onChange={(e) => setMail(e.target.value)}
 
 
 </div>
-<h1>Esqueçi Senha</h1>
+<h1>Esqueci Senha</h1>
 <button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
           {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
