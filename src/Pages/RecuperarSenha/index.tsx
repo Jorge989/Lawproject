@@ -14,7 +14,7 @@ import {Link, useHistory} from 'react-router-dom'
  import { Container,Header,Entrar,Entrar2 ,Blue,Lockicon1, Draw} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
-
+import {useParams} from 'react-router-dom';
  import getValidationErrors from '../../utils/getValidationErros';
  import Input from '../../Components/Input';
  import Button from '../../Components/Button';
@@ -31,9 +31,12 @@ interface HistoryUserData {
 
  
 }
-
+interface RouteParams {
+  token: string;
+  }
  const RecuperarSenha: React.FC = () => {
-   
+  const {token} = useParams<RouteParams>();
+  console.log(useParams());
    const [data2, setData] = useState({ });
    const location = useLocation<LocationState>();
    const history = useHistory();
@@ -44,14 +47,14 @@ interface HistoryUserData {
   const {addToast} = useToast();
   // Aqui brow o getItem pode retornar String ou NULL
   // e esse cara, QUE DEVERIA SER UM OBJETO, vem string
-  const user = localStorage.getItem('@ActionLaw: user')
-  const token  = localStorage.getItem('@ActionLaw: token')
+  // const user = localStorage.getItem('@ActionLaw: user')
+  // const tokenw  = localStorage.getItem('@ActionLaw: token')
 
   // Então pra pegar o id do usuário eu tenho que dar um PARSE
   // e transformar ele em um objeto JSON pra depois desestruturar
   // só que o TS EXIGE que tenha validação nisso
   // então eu tenho que validar se o "user" !== null
-  const {id_usuario} = user ? JSON.parse(user) : ''
+  // const {id_usuario} = user ? JSON.parse(user) : ''
 
   const  handleSubmit2 = useCallback(
     async(data: object): Promise<void> => {
@@ -140,21 +143,23 @@ interface HistoryUserData {
 
 
   async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+   
     e.preventDefault()
   
      try {
 
  
-       const response = await api.post('autenticar/esqueceu_senha',{
-       
+      await api.post("autenticar/redefinir_senha", {
         email: mail,
+        senha: senha,
+        token: token || '3bcb3dcf80751c011dbee54cfba74ed8be0a569a'
      
       }, );
       ;
           
       addToast({
         type: 'sucess',
-        title: 'Cadastro realizado com sucesso'
+        title: 'Senha redefinida com sucesso'
       })
     
       

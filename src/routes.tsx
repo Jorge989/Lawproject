@@ -22,7 +22,7 @@ const Routes: React.FC = () => {
         <Route path="/cadastroinfo" exact component={Cadastroinfo} />
         <Route path="/faq" exact component={Faq} />
         <Route path="/esquecisenha" exact component={Esquecisenha} />
-        <Route path="/recuperarsenha" exact component={Recuperarsenha} />
+        <Route path="/recuperarsenha/token=:token" exact component={Recuperarsenha} />
         <Route path="/home" exact component={Homepage} isPrivate/>
         <Route path="/trocarsenha" exact component={TrocarSenha} isPrivate/>
         { <Route path="/dashboard" exact component={Dashboard} isPrivate/>}
