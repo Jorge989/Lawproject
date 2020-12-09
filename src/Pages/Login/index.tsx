@@ -1,10 +1,12 @@
 
-
+//2846445278933444
 import React,{useState,useCallback,useRef} from 'react';
 import {FiArrowLeft} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link} from 'react-router-dom'
-import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
+
+import { Container,Header,Entrar,Entrar2 ,Lockicon1,Blue, Draw,GoogleLogin,Googleicon,Facebokcion} from './styles';
+import FacebookLogin from 'react-facebook-login';
 
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
@@ -21,7 +23,6 @@ import {useToast} from '../../hooks/toast'
 // async function handleSignIn(){
 //   console.log('Logar');
 // }
-
 
 
 interface SigInFormData{
@@ -72,16 +73,28 @@ await schema.validate(data,{
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
+
+  
   const responseGoogle = (response:| GoogleLoginResponse |GoogleLoginResponseOffline): void => {
     if (!('profileObj' in response)) return;
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
+    console.log(response)
+    console.log(response.profileObj)
   }
+  console.log(responseGoogle);
   const responseGoogleFailed = (response: GoogleLoginResponse): void => {
   console.log(response);
       }
 
+const responseFacebook = (response:any) =>{
+  console.log(response);
+}
+
+const componetClicked =(data:any) =>{
+  console.warn(data)
+}
 
       const eye = <FiEyeOff/>;
       const [passwordShown, setPasswordShown] = useState(false);
@@ -94,8 +107,13 @@ const [inputType, setInputType] = useState("password")
  <i onClick={togglePasswordVisiblity}>{eye}</i>
 
 
+
+
+
   return (
     <Container>
+    
+
 <Header>
 <div className="cont">
     <li> <a href="/faq" className="cool-link">Faq</a></li>
@@ -104,7 +122,7 @@ const [inputType, setInputType] = useState("password")
     <li> <a href="#" className="cool-link3">Contate-nos</a></li>
 
 </div>
-    
+<Lockicon1/>
         <Entrar> 
         <button>
         Entrar
@@ -143,15 +161,12 @@ icon={FiLock}
 type={inputType}
 placeholder="senha"
  />
- 
+
   <Button type="submit" onClick={() => handleSubmit}>Entrar</Button>
   
 </div>
 <h1>Bem-Vindo !</h1>
-<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
-          {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
-          </button>
 <h3>Entrar</h3>
 
 <h4>ou acesse rapidamente!</h4>
@@ -160,6 +175,8 @@ placeholder="senha"
 
 
 <Draw/>
+
+
 
 
 
@@ -173,14 +190,32 @@ placeholder="senha"
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
     
+  
     />
 <button><a href="novocadastro">Cadastre-se</a></button>
 <button className="Esqueceu"><a href="esquecisenha">Esqueceu sua senha?</a></button>
+
 </Form>
+
+
+<FacebookLogin
+    appId="2846445278933444"
+    autoLoad={false}
+    fields="name,email,picture"
+    onClick={componetClicked}
+    callback={responseFacebook} 
+icon={<Facebokcion />}
+textButton=""
+cssClass="facebook"
+/>
+
 </Blue>
+<button onClick={togglePasswordVisiblity} type="button"  className="eye">
+
+          {passwordShown ? (<FiEye size={22}/>)  : (<FiEyeOff size={22}/>) }
+          </button>
 
     </Container>
-
 
   )
 

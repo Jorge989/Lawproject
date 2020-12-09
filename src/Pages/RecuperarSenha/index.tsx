@@ -11,7 +11,7 @@ import {FiEye} from 'react-icons/fi'
 import { useLocation } from 'react-router-dom';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue,Lockicon1, Draw} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
 
@@ -56,11 +56,14 @@ interface HistoryUserData {
   const  handleSubmit2 = useCallback(
     async(data: object): Promise<void> => {
 
+
     try {
       formRef.current?.setErrors({}); 
       const schema = Yup.object().shape({
-        email: Yup.string().required('E-mail obrigatório'),
+   
 
+        email: Yup.string().required('E-mail obrigatório'),
+        senha: Yup.string().required('Senha obrigatória'),
 
         // senha: Yup.string().trim().matches(
         //   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
@@ -140,6 +143,8 @@ interface HistoryUserData {
     e.preventDefault()
   
      try {
+
+ 
        const response = await api.post('autenticar/esqueceu_senha',{
        
         email: mail,
@@ -203,7 +208,7 @@ const [inputType, setInputType] = useState("password")
 <div className="cont">
           <li>
             {' '}
-            <a href="#" className="cool-link">
+            <a href="/faq" className="cool-link">
               Faq
             </a>
           </li>
@@ -226,7 +231,7 @@ const [inputType, setInputType] = useState("password")
             </a>
           </li>
         </div>
-    
+        <Lockicon1/>
         <Entrar>
           <button>Entrar</button>
         </Entrar>
@@ -268,7 +273,8 @@ onChange={(e) => setSenha(e.target.value)}
 placeholder="senha"
  />       
  
- <Button  className="btn"type="submit" onClick={handleSubmit}>Confirmar</Button>
+ 
+ <Button  className="btn"type="submit"onClick={(e) => {handleSubmit(e);handleSubmit2(e);}}>Confirmar</Button>
 
 
 </div>

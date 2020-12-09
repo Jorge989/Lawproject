@@ -6,7 +6,7 @@ import {} from 'react-icons/fi'
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import { useHistory} from 'react-router-dom'
 import * as Yup from 'yup';
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw,} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue, Lockicon1,Draw,} from './styles';
  import api from '../../services/api'
  import { useLocation } from 'react-router-dom';
  import {AuthContext, useAuth} from '../../hooks/auth'
@@ -247,14 +247,14 @@ const [tipoperfil, setTipoperfil] = useState("");
 <Container>
 <Header>
 <div className="cont">
-    <li> <a href="#" className="cool-link">Faq</a></li>
+    <li> <a href="/faq" className="cool-link">Faq</a></li>
     <li> <a href="#" className="cool-link1">Sobre</a></li>
     <li> <a href="#" className="cool-link2">Preços</a></li>
     <li> <a href="#" className="cool-link3">Contate-nos</a></li>
 
 </div>
     
-         
+<Lockicon1/>
         <Entrar> 
         <button> 
         Entrar

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
 import {Go} from '../../styles/icons'
+import {Lock} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
 
 
@@ -611,6 +612,12 @@ export const Draw = styled(DrawCadastro)`
 
 
  
+
+`;
+export const Lockicon1 = styled(Lock)`
+
+ 
+
 
 `;
 export const Googleicon = styled(Go)`

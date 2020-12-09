@@ -7,10 +7,10 @@ import  {Form} from '@unform/web'
 import {FormHandles} from '@unform/core'
 import {FiEyeOff} from 'react-icons/fi'
 import {FiEye} from 'react-icons/fi'
-
+import FacebookLogin from 'react-facebook-login';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw,GoogleLogin,Googleicon} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue,Lockicon1, Draw,GoogleLogin,Googleicon,Facebokcion} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
 
@@ -83,7 +83,7 @@ const {addToast} = useToast();
     }
   }, [addToast]);
 
-
+ 
 
   const [name, setName] = useState('');
   
@@ -107,33 +107,7 @@ const {addToast} = useToast();
     
 
 
-  // function handleSubmit2(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-  //   e.preventDefault()
   
-
-  // const handleSubmi2 = useCallback(async(data: object) =>{
-
-  
-  //   history.push('/cadastroinfo', { email, senha })
-  //   try{
-// const schema = Yup.object().shape({
-//   name: Yup.string().required(),
-//   email: Yup.string().required('E-mail obrigatório').email('Digite um e-mail válido'),
-//   senha: Yup.string().min(8, "No mínimo 6 digitos"),
-// })
-// await schema.validate(data, {
-//   abortEarly: false,
-// });
-// formRef.current?.setErrors({
-//   email: 'Email obrigatório'
-// })
-//     } catch (err) {
-// formRef.current?.setErrors({
-//   email: 'Email obrigatório',
-// });
-//     }
-//   }, []);
-
 
 const [passwordShown, setPasswordShown] = useState(false);
 const [inputType, setInputType] = useState("password")
@@ -152,22 +126,7 @@ const [inputType, setInputType] = useState("password")
     },[]);
   
 
-    // useEffect(() => {
-    //   if(senha && !reg.test(senha)){
-    //     setPasswordError(messagePonto)
-    //   } else{
-    //     setPasswordError('')
-    //   }
-    // }, [senha])
-
-    // useEffect(() => {
-    //   if(email && !reg.test(email)){
-    //     setPasswordError(messageArroba)
-    //   } else{
-    //     setPasswordError('')
-    //   }
-    // }, [email])
-
+  
  
  
  
@@ -181,6 +140,15 @@ const [inputType, setInputType] = useState("password")
     console.log(response.profileObj)
   }
 
+
+  const responseFacebook = (response:any) =>{
+    console.log(response);
+  }
+  
+  const componetClicked =(data:any) =>{
+    console.warn(data)
+  }
+
   return (
 
 <Container> 
@@ -188,7 +156,7 @@ const [inputType, setInputType] = useState("password")
 <div className="cont">
           <li>
             {' '}
-            <a href="#" className="cool-link">
+            <a href="/faq" className="cool-link">
               Faq
             </a>
           </li>
@@ -211,7 +179,7 @@ const [inputType, setInputType] = useState("password")
             </a>
           </li>
         </div>
-    
+        <Lockicon1/>
         <Entrar>
           <button>Entrar</button>
         </Entrar>
@@ -262,10 +230,7 @@ type={inputType}
 
 </div>
 <h1>Bem-Vindo !</h1>
-<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
-          {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
-          </button>
 <h3>Cadastrar</h3>
 
 <h4>ou acesse rapidamente!</h4>
@@ -293,8 +258,23 @@ type={inputType}
 
 
 </Form>
-</Blue>
 
+
+<FacebookLogin
+    appId="2846445278933444"
+    autoLoad={false}
+    fields="name,email,picture"
+    onClick={componetClicked}
+    callback={responseFacebook} 
+icon={<Facebokcion />} 
+textButton=""
+cssClass="facebook"
+/>
+</Blue>
+<button onClick={togglePasswordVisiblity} type="button"  className="eye">
+
+          {passwordShown ? (<FiEye size={22}/>)  : (<FiEyeOff size={22}/>) }
+          </button>
 
 </Container>
   )

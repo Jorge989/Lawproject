@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
 import {Go} from '../../styles/icons'
+import {Lock} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
 
 
@@ -15,7 +16,20 @@ justify-content:center;
   width: 100%;
   z-index:999;
 
+  >.eye{
+  z-index:999;
 
+outline:0;
+height:3%;
+width:3%;
+
+margin-left:-11%;
+margin-top: 23%;
+
+&:hover{
+  color:blue;
+}
+}
 
 `;
 
@@ -320,7 +334,7 @@ margin-left:0%;
  width:35%;
  height:480px;
 
- margin-top:79px;
+ margin-top:100px;
  
 >Form{
   .btn{
@@ -395,15 +409,6 @@ display:none;
 }
 
 
->.eye{
-  z-index:999;
-
-outline:0;
-height:3%;
-margin-left:52%;
-margin-top: 9.1%;
-position:absolute;
-}
 
 
 >button{
@@ -611,6 +616,12 @@ export const Draw = styled(DrawCadastro)`
 
 
  
+
+`;
+export const Lockicon1 = styled(Lock)`
+
+ 
+
 
 `;
 export const Googleicon = styled(Go)`

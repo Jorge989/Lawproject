@@ -382,7 +382,7 @@ export const Blue = styled.div`
  width:90%;
  height:600px;
 
- margin-top:80px;
+ margin-top:100px;
 
 
 

@@ -10,7 +10,7 @@ import {FiEye} from 'react-icons/fi'
 import { useLocation } from 'react-router-dom';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue,Lockicon1, Draw} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
 
@@ -59,7 +59,7 @@ interface HistoryUserData {
       formRef.current?.setErrors({}); 
       const schema = Yup.object().shape({
         email: Yup.string().required('E-mail obrigatório'),
-
+       
 
         // senha: Yup.string().trim().matches(
         //   /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
@@ -100,12 +100,12 @@ interface HistoryUserData {
 
       }
     
-      addToast({
-        type: 'error',
-        title: 'Erro ao alterar senha',
-         description: `Ocorreu um erro ao informar e-mail, tente novamente.${err}`
+      // addToast({
+      //   type: 'error',
+      //   title: 'Erro ao alterar senha',
+      //    description: `Ocorreu um erro ao informar e-mail, tente novamente.${err}`
        
-      });
+      // });
  
       
     }
@@ -202,7 +202,7 @@ const [inputType, setInputType] = useState("password")
 <div className="cont">
           <li>
             {' '}
-            <a href="#" className="cool-link">
+            <a href="/faq" className="cool-link">
               Faq
             </a>
           </li>
@@ -225,7 +225,7 @@ const [inputType, setInputType] = useState("password")
             </a>
           </li>
         </div>
-    
+        <Lockicon1/>
         <Entrar>
           <button>Entrar</button>
         </Entrar>
@@ -257,7 +257,7 @@ onChange={(e) => setMail(e.target.value)}
              
          
  
- <Button  className="btn"type="submit" onClick={handleSubmit}>Confirmar</Button>
+ <Button  className="btn"type="submit"onClick={(e) => {handleSubmit(e);handleSubmit2(e);}}>Confirmar</Button>
 
 
 </div>

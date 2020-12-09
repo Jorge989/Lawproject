@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {DrawCadastro} from '../../styles/icons'
+import {Lock} from '../../styles/icons'
 import {Go} from '../../styles/icons'
+import {face} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
 export const Container = styled.div`
 display:flex;
@@ -10,6 +12,20 @@ justify-content:center;
   margin: 0 auto;
   width: 100%;
   z-index:999;
+  >.eye{
+  z-index:999;
+
+outline:0;
+height:3%;
+width:3%;
+
+margin-left:-7%;
+margin-top: 21.7%;
+
+&:hover{
+  color:blue;
+}
+}
 `;
 
 
@@ -311,6 +327,17 @@ export const Blue = styled.div`
 
  margin-top:100px;
 
+  .facebook{
+    width:-1%;
+    z-index:999;
+    display:flex;
+ color:red;
+
+    margin-top:-25.3%;
+    margin-left:81%;
+    cursor:pointer;
+   outline:0;
+  }
  >Form{
    .Esqueceu{
      margin-top:-1%;
@@ -384,15 +411,7 @@ outline:0;
 }
 
 
->.eye{
-  z-index:999;
 
-outline:0;
-height:3%;
-margin-left:63.6%;
-margin-top: 4.2%;
-position:absolute;
-}
 
 
 >button{
@@ -418,10 +437,10 @@ color:#2828FC;
 
 .btngoogle{
 outline:0;
-width:2.5%;
+width:3.2%;
 height:5.5%;
-margin-top:-19.2%;
-margin-left:75%;
+margin-top:-18.7%;
+margin-left:76%;
 
 
 }
@@ -595,7 +614,20 @@ export const Draw = styled(DrawCadastro)`
  
 
 `;
+
+export const Lockicon1 = styled(Lock)`
+
+ 
+
+
+`;
 export const Googleicon = styled(Go)`
+
+
+ 
+
+`;
+export const Facebokcion = styled(face)`
 
 
  
@@ -609,7 +641,6 @@ export const AnimationContainer = styled.div`
 
 `
 ;
-
 
 
 

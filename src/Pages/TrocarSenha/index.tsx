@@ -10,7 +10,7 @@ import {FiEye} from 'react-icons/fi'
 import { useLocation } from 'react-router-dom';
 import {GoogleLoginResponse,GoogleLoginResponseOffline} from 'react-google-login'
 import {Link, useHistory} from 'react-router-dom'
- import { Container,Header,Entrar,Entrar2 ,Blue, Draw} from './styles';
+ import { Container,Header,Entrar,Entrar2 ,Blue,Lockicon1, Draw} from './styles';
  import api from '../../services/api'
  import * as Yup from 'yup';
 
@@ -105,7 +105,7 @@ interface HistoryUserData {
       addToast({
         type: 'error',
         title: 'Erro ao alterar senha',
-         description: `Ocorreu um erro ao alterar senha, tente novamente.${err}`
+         description: `Ocorreu um erro ao alterar senha, tente novamente`
        
       });
  
@@ -215,7 +215,7 @@ const [inputType, setInputType] = useState("password")
 <div className="cont">
           <li>
             {' '}
-            <a href="#" className="cool-link">
+            <a href="/faq" className="cool-link">
               Faq
             </a>
           </li>
@@ -238,7 +238,7 @@ const [inputType, setInputType] = useState("password")
             </a>
           </li>
         </div>
-    
+        <Lockicon1/>
         <Entrar>
           <button>Entrar</button>
         </Entrar>
@@ -290,10 +290,7 @@ type={inputType}
 
 </div>
 <h1>Alterar Senha</h1>
-<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
-          {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
-          </button>
 {/* <h3>Alterar Senha</h3> */}
 
 {/* <h4>ou acesse rapidamente!</h4> */}
@@ -322,7 +319,11 @@ type={inputType}
 
 </Form>
 </Blue>
+<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
+          {passwordShown ? (<FiEye size={22}/>)  : (<FiEyeOff size={22}/>)
+           }
+          </button>
 
 </Container>
   )

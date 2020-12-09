@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Drawinfo} from '../../styles/icons'
 import {Go} from '../../styles/icons'
+import {Lock} from '../../styles/icons'
 import  {GoogleLogin as CustomGoogleLogin} from 'react-google-login'
 export const Container = styled.div`
 display:flex;
@@ -309,7 +310,7 @@ margin-left:0%;
  width:70%;
  height:480px;
 
- margin-top:79px;
+ margin-top:100px;
 
 
 
@@ -646,6 +647,12 @@ export const Draw = styled(Drawinfo)`
 
 
  
+
+`;
+export const Lockicon1 = styled(Lock)`
+
+ 
+
 
 `;
 export const Googleicon = styled(Go)`

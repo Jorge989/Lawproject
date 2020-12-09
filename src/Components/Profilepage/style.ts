@@ -57,7 +57,10 @@ width: 40%;
     font-size: 60px;
     margin-top: 140px;
     width: 220%;
- 
+    /* background: -webkit-linear-gradient(20deg, #3939FF, #00d0ff, #00D2E2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  */
   }
   
   > h2{
@@ -71,7 +74,7 @@ width: 40%;
   }
   >strong{
     margin-left: 22px;
-    font-size: 28px;
+    font-size: 32px;
     margin-top: 18%;
   }
   @media (max-width: 601px){
