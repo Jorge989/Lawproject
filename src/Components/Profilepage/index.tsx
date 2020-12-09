@@ -4,9 +4,10 @@ import { useTransition, animated, config } from 'react-spring'
  import Lottie from 'react-lottie';
  import ReactPlayer from 'react-player'
 
- import Appblue from '../../assets/svgappblue.svg';
-  import Appwhite from '../../assets/svgappwhite.svg';
-  import Apppurple from '../../assets/svgappurple.svg';
+ import Appblue from '../../assets/Ablue.svg';
+  import Appwhite from '../../assets/Awhite.svg';
+  import Apppurple from '../../assets/Adark.svg';
+  import Appgreen from '../../assets/Agreen.svg';
  import * as animationData from  '../../assets/33558-hummer.json'
  import * as Gif from  '../../assets/33558-hummer.json'
  export interface ISignUpData {
@@ -17,6 +18,7 @@ const slides = [
   {id: 0, src: Appblue},
   {id: 1, src: Appwhite},
   {id: 2, src: Apppurple},
+  {id: 3, src: Appgreen},
 ]
 const Profilepage: React.FC = () => {
 
@@ -29,7 +31,7 @@ const Profilepage: React.FC = () => {
     config: config.molasses
   })
 
-  useEffect(()=> void setInterval(()=>  set(state=> (state +1) % 3), 7000), [])
+  useEffect(()=> void setInterval(()=>  set(state=> (state +1) % 4), 5000), [])
 
 
   const defaultOptions = {
