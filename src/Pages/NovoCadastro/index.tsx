@@ -273,7 +273,7 @@ cssClass="facebook"
 </Blue>
 <button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
-          {passwordShown ? (<FiEye size={22}/>)  : (<FiEyeOff size={22}/>) }
+          {passwordShown ? (<FiEye size={21}/>)  : (<FiEyeOff size={21}/>) }
           </button>
 
 </Container>

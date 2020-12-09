@@ -12,6 +12,8 @@ export const Container = styled.div`
 display: none;
 
   }
+
+
   > svg{
     display:flex;
 margin-left: 200px;
@@ -61,8 +63,22 @@ width: 40%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   */
+
+ 
   }
-  
+  .appazul{
+    width:77%;
+    margin-top:2%;
+  margin-left:170%;
+  z-index:0;
+}
+/* .white{
+    width:40%;
+    margin-top:-37%;
+  margin-left:120%;
+  z-index:0;
+  margin-left:170%;
+} */
   > h2{
       font-weight: normal;
       font-size: 25px;

@@ -20,7 +20,7 @@ height:3%;
 width:3%;
 
 margin-left:-7%;
-margin-top: 21.7%;
+margin-top: 21.5%;
 
 &:hover{
   color:blue;

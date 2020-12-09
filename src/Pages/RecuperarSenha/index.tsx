@@ -107,12 +107,12 @@ interface RouteParams {
 
       }
     
-      addToast({
-        type: 'error',
-        title: 'Erro ao alterar senha',
-         description: `Ocorreu um erro ao informar e-mail, tente novamente.${err}`
+      // addToast({
+      //   type: 'error',
+      //   title: 'Erro ao alterar senha',
+      //    description: `Ocorreu um erro ao informar e-mail, tente novamente.${err}`
        
-      });
+      // });
  
       
     }
@@ -167,7 +167,7 @@ interface RouteParams {
       addToast({
         type: 'error',
         title: 'Erro na cadastro',
-        description: `Ocorreu um erro ao fazer cadastro, tente novamente.${error}`
+        description: `Ocorreu um erro ao alterar senha, tente novamente.`
         
       });
       
@@ -284,10 +284,7 @@ placeholder="senha"
 
 </div>
 <h1>Definir Nova Senha</h1>
-<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
-          {passwordShown ? (<FiEye/>)  : (<FiEyeOff/>) }
-          </button>
 {/* <h3>Alterar Senha</h3> */}
 
 {/* <h4>ou acesse rapidamente!</h4> */}
@@ -316,7 +313,10 @@ placeholder="senha"
 
 </Form>
 </Blue>
+<button onClick={togglePasswordVisiblity} type="button"  className="eye">
 
+{passwordShown ? (<FiEye size={100}/>)  : (<FiEyeOff size={100}/>)}
+          </button>
 
 </Container>
   )

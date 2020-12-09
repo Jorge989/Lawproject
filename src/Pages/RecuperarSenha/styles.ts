@@ -15,7 +15,18 @@ justify-content:center;
   width: 100%;
   z-index:999;
 
-
+  .eye{
+  z-index:999;
+display:none;
+outline:0;
+height:3%;
+width:20020px;
+height:20020px;
+margin-left:200%;
+margin-top: 10%;
+position:absolute;
+background-color:red;
+}
 
 `;
 
@@ -395,15 +406,7 @@ display:none;
 }
 
 
->.eye{
-  z-index:999;
-display:none;
-outline:0;
-height:3%;
-margin-left:52%;
-margin-top: 9.1%;
-position:absolute;
-}
+
 
 
 >button{
