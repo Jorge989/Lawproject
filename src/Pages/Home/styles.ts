@@ -209,11 +209,15 @@ justify-content: center;
   >button{
     
     outline:0;
-    
-     
+    margin-left:83%;
+
+ 
+
   }
    img{
-  margin-left: 1160px;
+    
+
+
   outline:0;
 
   cursor:pointer;

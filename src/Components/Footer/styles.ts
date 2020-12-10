@@ -54,21 +54,21 @@ right:0;
     margin-left:0px;
     color: #fff;
     &:hover{
-      color: aqua;
+      color: #0d68ff;
     }
   }
   .twit{
     margin-left:20px;
     color: #fff;
     &:hover{
-      color: aqua;
+      color: #0d68ff;
     }
   }
   .link{
     margin-left:20px;
     color: #fff;
     &:hover{
-      color: aqua;
+      color: #0d68ff;
     }
   }
   list-style:none;

@@ -128,7 +128,7 @@ const [inputType, setInputType] = useState("password")
 
   
  
- 
+   
  
   
   const responseGoogle = (response:| GoogleLoginResponse |GoogleLoginResponseOffline): void => {
@@ -136,9 +136,30 @@ const [inputType, setInputType] = useState("password")
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
+    handleLogin(response)
     console.log(response)
     console.log(response.profileObj)
   }
+
+
+  
+  async function handleLogin(data:| GoogleLoginResponse |GoogleLoginResponseOffline) {
+    if (!('profileObj' in data)) return;
+    const dadosCadastro = {
+      email: data.profileObj.email,
+      nome: data.profileObj.name,
+      tipo_conta: "google",
+      senha: data.googleId + "!@#$J",
+      perfil: data.profileObj.imageUrl
+    }
+    const response = await api.post('usuarios', dadosCadastro);
+    history.push('/cadastroinfo',{loginDTO: data, userData: response.data})
+  console.log(data)
+    console.log(response.status)
+    console.log(response);
+
+  }
+  
 
 
   const responseFacebook = (response:any) =>{
@@ -225,7 +246,7 @@ type={inputType}
              
          
  
- <Button type="submit" onClick={() => handleSubmit}>Cadastrar</Button>
+ <Button type="submit" onClick={() => {handleSubmit;handleLogin;}}>Cadastrar</Button>
 
 
 </div>

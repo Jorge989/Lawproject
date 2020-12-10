@@ -318,19 +318,23 @@ justify-content: center;
 export const Blue = styled.div`
 
 .Menu{
+ 
+
   display:flex;
   justify-content:center;
-  border-radius:3px;
+  border-radius:10px;
   max-width:90%;
+font-size:18px;
+color:#0058FF;
+line-height:1.4;
 
-background-color:red;
-  opacity:0.4;
 z-index:999;
 >h1{
   display:flex;
   max-width:90%;
   justify-content:center;
-  font-size:25px;
+  font-size:20px;
+  font-weight:500;
   
 }
 }
@@ -360,7 +364,7 @@ z-index:999;
   >div{
     >h1{
       
-color:#0058FF;
+color:#0000FF;
 font-weight:400;
     width:100%;
     margin-left:3%;
@@ -389,7 +393,7 @@ export const Draw = styled(CinzaIcon)`
 
 }
 width:20%;
- 
+
  height:20%;
 
 `;
