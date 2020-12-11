@@ -21,6 +21,7 @@ export interface AuthContextData{
    user: object;
    signIn(credentials: SignInCredentials): Promise<void>;
    signOut(): void;
+   setAuthData({token, user}: AuthState): void;
 }
 
 
@@ -57,9 +58,16 @@ const signOut = useCallback(() =>{
     localStorage.removeItem('@ActionLaw: user');
     setData ({} as AuthState);
 }, []);
+
+const setAuthData = useCallback(({user, token}: AuthState) => {
+    localStorage.setItem('@ActionLaw: token', token);
+localStorage.setItem('@ActionLaw: user  ', JSON.stringify(user));
+setData({token, user})
+}, []) 
+
   
     return(
-    <AuthContext.Provider value={{user: data.user, signIn, signOut}}>
+    <AuthContext.Provider value={{user: data.user, signIn, signOut, setAuthData}}>
     {children}
     </AuthContext.Provider>
     );

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153" height="62" viewBox="0 0 153 62">
+  <defs>
+    <filter id="Retângulo_96" x="8" y="0" width="51" height="51" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_38480" data-name="Grupo 38480" transform="translate(-129 -35)">
+    <g id="Grupo_62" data-name="Grupo 62" transform="translate(5 3)">
+      <path id="Caminho_44827" data-name="Caminho 44827" d="M3,0A30,30,0,0,1,33,30a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z" transform="translate(124 60)" fill="#1c1b1b"/>
+      <g transform="matrix(1, 0, 0, 1, 124, 32)" filter="url(#Retângulo_96)">
+        <path id="Retângulo_96-2" data-name="Retângulo 96" d="M3,0H3A30,30,0,0,1,33,30v0a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z" transform="translate(50 39) rotate(180)" fill="#334eff"/>
+      </g>
+      <text id="Logo" transform="translate(244 63)" fill="#334eff" font-size="28" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="-32.942" y="0">Logo</tspan></text>
+      <text id="Law" transform="translate(236 89)" fill="#5a6399" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.136em"><tspan x="-21.187" y="0">Law</tspan></text>
+    </g>
+  </g>
+</svg>

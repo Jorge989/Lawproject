@@ -57,6 +57,7 @@ z-index:2;
      cursor:pointer;
      outline:0;
    }
+
   @media (max-width: 601px){
   
   display: flex;
@@ -169,7 +170,14 @@ transition: width .3s;
 
 
 }
-
+.logo{
+ display:flex;
+ justify-content:center;
+ width:25%;
+ margin-top:-3%;
+     margin-left:-100%;
+   
+}
  
   > svg {
     margin-left: 1050px;

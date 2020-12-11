@@ -135,7 +135,6 @@ async function handleSubmit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)
   if( nomecompleto !=="" &&telput !==""  && tipoperfil!=="" ){   
    
    try {
-    console.log(data.userData)
      const response = await api.post('escritorios',{
       nome: nomescritorio !== "" ? nomescritorio : nomecompleto,
       tipo_pag: "cartao_credito",
