@@ -12,6 +12,7 @@ import Dashboard from "./Pages/Dashboard";
 import Faq from "./Pages/Faq";
 import Esquecisenha from "./Pages/EsqueciSenha";
 import Recuperarsenha from "./Pages/RecuperarSenha";
+import Faq2 from "./Pages/Faq2";
 
 const Routes: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Routes: React.FC = () => {
       <Route path="/novocadastro" exact component={NovoCadastro} />
       <Route path="/cadastroinfo" exact component={Cadastroinfo} />
       <Route path="/faq" exact component={Faq} />
+      <Route path="/faq2" exact component={Faq2} isPrivate/>
       <Route path="/esquecisenha" exact component={Esquecisenha} />
       <Route
         path="/recuperarsenha/token=:token"

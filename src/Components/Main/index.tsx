@@ -41,8 +41,8 @@ const Main: React.FC = () => {
           </button>
         </div>
 
-        <Lockicon1 />
         <Entrar>
+        <Lockicon1 />
           <button>
             <a href="/login">Entrar</a>
           </button>

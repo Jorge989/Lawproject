@@ -112,12 +112,21 @@ export const Header = styled.div`
     transition: width 0.3s;
   }
 
+    .logo1{
+ 
+ display: flex;
+ justify-content: center;
+ width: 25%;
+ margin-top:-2%;
+height:25%;
+ margin-left: -100%;
+
+
+}
   .logo {
-    display: flex;
-    justify-content: center;
-    width: 25%;
-    margin-top: -3%;
-    margin-left: -100%;
+
+    width: 90%;
+
   }
   > svg {
     margin-left: 1050px;

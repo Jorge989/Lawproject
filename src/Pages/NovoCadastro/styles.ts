@@ -127,12 +127,21 @@ export const Header = styled.div`
     margin-left: 38px;
     transition: width 0.3s;
   }
+  .logo1{
+ 
+ display: flex;
+ justify-content: center;
+ width: 25%;
+ margin-top:-2%;
+height:25%;
+ margin-left: -100%;
+
+
+}
   .logo {
-    display: flex;
-    justify-content: center;
-    width: 25%;
-    margin-top: -3%;
-    margin-left: -100%;
+
+    width: 90%;
+
   }
 
   > svg {
@@ -298,19 +307,21 @@ export const Blue = styled.div`
 
   margin-top: 100px;
   .facebook {
-    width: -1%;
+
     z-index: 999;
     display: flex;
-    color: red;
 
-    margin-top: -17%;
-    margin-left: 82%;
+
+    margin-top: -17.2%;
+    margin-left: 81%;
     cursor: pointer;
     outline: 0;
-    > svg {
-      width: 88%;
-    }
+
   }
+    > svg {
+      width: 80%;
+    }
+  
   > Form {
     height: 100%;
     > h1 {
@@ -381,10 +392,11 @@ export const Blue = styled.div`
 
     .btngoogle {
       outline: 0;
-      width: 2.8%;
+      width: 3.1%;
       height: 5.5%;
-      margin-top: -10.5%;
+      margin-top: -10.7%;
       margin-left: 76%;
+   
     }
     h3 {
       margin-left: 73.5%;
@@ -526,6 +538,7 @@ export const GoogleLogin = styled(CustomGoogleLogin)`
   background-color: red;
   margin-left: 200px;
   margin-top: -20%;
+position: fixed;
   > button {
     background-color: red;
     margin-top: -30%;

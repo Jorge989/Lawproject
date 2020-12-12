@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <body>
         <footer>
           <div className="footer-content">
-            <h3>code opacity</h3>
+            <h3>Inova Law</h3>
             <p>Lorem ipsum dolor site amet, consecter aidin s elit </p>
             <ul className="socials">
               <FiFacebook

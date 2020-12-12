@@ -247,7 +247,11 @@ const Cadastroinfo: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <button className="logo1">
+            <a href="/">
           <img src={Logo} className="logo" />
+          </a>
+          </button>
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -274,8 +278,8 @@ const Cadastroinfo: React.FC = () => {
           </li>
         </div>
 
-        <Lockicon1 />
         <Entrar>
+        <Lockicon1 />
           <button>Entrar</button>
         </Entrar>
         <Entrar2>

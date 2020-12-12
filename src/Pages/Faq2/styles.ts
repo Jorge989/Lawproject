@@ -278,7 +278,7 @@ export const Entrar2 = styled.div`
 `;
 export const Blue = styled.div`
   .Menu {
-    display: flex;
+ 
     justify-content: center;
     border-radius: 10px;
     max-width: 90%;
@@ -288,7 +288,7 @@ export const Blue = styled.div`
 
     z-index: 999;
     > h1 {
-      display: flex;
+
       max-width: 90%;
       justify-content: center;
       font-size: 20px;
@@ -313,7 +313,7 @@ export const Blue = styled.div`
   }
   > div {
     > h1 {
-      color: #0000ff;
+      color: #3939FF;
       font-weight: 400;
       width: 100%;
       margin-left: 3%;

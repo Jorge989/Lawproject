@@ -41,7 +41,7 @@ export const Container = styled.div`
 `;
 export const Header = styled.div`
   z-index: 2;
-  position: fixed;
+  position: absolute;
 
   left: 0;
   height: 75px;
@@ -53,6 +53,8 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+ 
   .menuhamburg {
     display: none;
     > button {
@@ -264,8 +266,11 @@ export const Entrar2 = styled.div`
   margin-left: 900px;
 
   > button {
+    
     > a {
       text-decoration: none;
+
+border-radius:5px;
 
       color: #000000;
       &:hover {

@@ -161,13 +161,18 @@ export const Header = styled.div`
     margin-left: 38px;
     transition: width 0.3s;
   }
+  
 
   .logo {
+ 
     display: flex;
-    justify-content: center;
-    width: 25%;
-    margin-top: -3%;
-    margin-left: -100%;
+ justify-content: center;
+ width: 25%;
+ margin-top:-2%;
+height:25%;
+ margin-left: -100%;
+
+
   }
   > svg {
     margin-left: 1050px;
@@ -178,10 +183,13 @@ export const Header = styled.div`
   > button {
     display: flex;
     justify-content: center;
+    
   }
   > button {
     outline: 0;
     margin-left: 83%;
+    position:fixed;
+
   }
   img {
     outline: 0;
@@ -301,8 +309,10 @@ export const Entrar = styled.div`
 
     padding: 1px 0px 0px 1px;
     display: flex;
-
+margin-top:-9%;
     justify-content: space-between;
+
+
 
     width: 60px;
     margin-left: 20px;
@@ -418,6 +428,9 @@ export const Blue = styled.div`
       &:hover {
         background-color: #eeeeee;
       }
+      >a{
+        color: #4040ff;
+        text-decoration:none;
       > h4 {
         margin-top: -1px;
         font-size: 15px;
@@ -426,6 +439,7 @@ export const Blue = styled.div`
         color: #4040ff;
         font-weight: 600;
       }
+     
     }
 
     > h2 {
@@ -437,7 +451,7 @@ export const Blue = styled.div`
       margin-left: 62.7%;
       font-size: 17px;
       margin-top: 13px;
-    }
+    }}
 
     width: 100%;
     margin-top: 0%;

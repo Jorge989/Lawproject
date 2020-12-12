@@ -64,6 +64,7 @@ const Login: React.FC = () => {
           email: data.email,
           senha: data.senha,
         });
+    
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           console.log(err);
@@ -96,15 +97,27 @@ const Login: React.FC = () => {
       email: response.profileObj.email,
     });
     setAuthData({ user: data.usuario, token: data.token });
-
+    addToast({
+      type: "sucess",
+      title: "Login realizado com sucesso",
+    });
     console.log(data);
   };
+  
   const responseGoogleFailed = (response: GoogleLoginResponse): void => {
     console.log(response);
   };
 
-  const responseFacebook = (response: any) => {
+  const responseFacebook = async (response: any) => {
     console.log(response);
+     const { data } = await api.post("/autenticar", {
+      email: response.userID + "@facebook.com",
+    });
+    setAuthData({ user: data.usuario, token: data.token });
+    addToast({
+      type: "sucess",
+      title: "Login realizado com sucesso",
+    });
   };
 
   const componetClicked = (data: any) => {
@@ -125,7 +138,11 @@ const Login: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <button className="logo1">
+            <a href="/">
           <img src={Logo} className="logo" />
+          </a>
+          </button>
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -151,8 +168,8 @@ const Login: React.FC = () => {
             </a>
           </li>
         </div>
-        <Lockicon1 />
         <Entrar>
+        <Lockicon1 />
           <button>Entrar</button>
         </Entrar>
         <Entrar2>

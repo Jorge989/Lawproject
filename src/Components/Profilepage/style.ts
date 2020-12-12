@@ -6,6 +6,8 @@ export const Container = styled.div`
   flex-direction: row;
   max-height: 100%;
 
+
+
   ::-webkit-scrollbar {
     display: none;
   }

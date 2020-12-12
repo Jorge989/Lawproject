@@ -55,10 +55,15 @@ const Home: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+      
+  
+          
           <img src={Logo} className="logo" />
+   
+
           <li>
             {" "}
-            <a href="/faq" className="cool-link">
+            <a href="/faq2" className="cool-link">
               Faq
             </a>
           </li>
@@ -84,10 +89,10 @@ const Home: React.FC = () => {
 
         <Entrar>
           <button onClick={signOut}>Sair</button>
-        </Entrar>
         <button onClick={() => setIsShow(!isShow)}>
           <img src={Person} alt="React Logo" />
         </button>
+        </Entrar>
 
         {/* <Entrar2>
         <button>
@@ -125,6 +130,7 @@ const Home: React.FC = () => {
           <h3>Advocacia</h3>
 
           <button>
+          <a href="/faq2">
             {" "}
             <BsFillQuestionOctagonFill
               size={25}
@@ -136,7 +142,9 @@ const Home: React.FC = () => {
                 marginTop: "6px",
               }}
             />
+        
             FAQ<h4>(Perguntas frequantes)</h4>
+            </a>
           </button>
           <Draw />
         </div>
