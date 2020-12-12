@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
+import Logo from "../../assets/logolaw.svg";
 import {
   Container,
   Draw,
@@ -23,6 +24,7 @@ const Faq: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+          <img src={Logo} className="logo" />
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -69,7 +71,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -98,7 +100,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -128,7 +130,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -157,7 +159,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -186,7 +188,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -216,7 +218,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />
@@ -245,7 +247,7 @@ const Faq: React.FC = () => {
                 color: "#0058FF",
                 width: "30px",
                 position: "absolute",
-                marginLeft: "-50px",
+                marginLeft: "-60px",
                 marginTop: "-5px",
               }}
             />

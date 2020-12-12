@@ -7,7 +7,7 @@ import {
 } from "react-google-login";
 import { useHistory } from "react-router-dom";
 import { Container, Header, Entrar, Blue, Draw } from "./styles";
-
+import Logo from "../../assets/logolaw.svg";
 import { useAuth } from "../../hooks/auth";
 import Person from "../../assets/person.svg";
 
@@ -55,6 +55,7 @@ const Home: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+          <img src={Logo} className="logo" />
           <li>
             {" "}
             <a href="/faq" className="cool-link">

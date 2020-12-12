@@ -7,6 +7,7 @@ import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
+import Logo from "../../assets/logolaw.svg";
 import FacebookLogin from "react-facebook-login";
 import {
   GoogleLoginResponse,
@@ -58,7 +59,8 @@ const NovoCadastro: React.FC = () => {
           abortEarly: false,
         });
 
-        const response = await api.post("usuarios", data);
+        const response = await api.post("usuarios", data);   
+
         history.push("/cadastroinfo", {
           loginDTO: data,
           userData: response.data,
@@ -116,21 +118,15 @@ const NovoCadastro: React.FC = () => {
     });
   }, []);
 
-  const responseGoogle = (
-    response: GoogleLoginResponse | GoogleLoginResponseOffline
-  ): void => {
+  const responseGoogle = (response: GoogleLoginResponse | GoogleLoginResponseOffline): void => {
     if (!("profileObj" in response)) return;
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
     handleLogin(response);
-    console.log(response);
-    console.log(response.profileObj);
   };
 
-  async function handleLogin(
-    data: GoogleLoginResponse | GoogleLoginResponseOffline
-  ) {
+  async function handleLogin(data: GoogleLoginResponse | GoogleLoginResponseOffline) {
     if (!("profileObj" in data)) return;
     const dadosCadastro = {
       email: data.profileObj.email,
@@ -139,15 +135,53 @@ const NovoCadastro: React.FC = () => {
       senha: data.googleId + "!@#$J",
       perfil: data.profileObj.imageUrl,
     };
-    const response = await api.post("usuarios", dadosCadastro);
-    history.push("/cadastroinfo", { loginDTO: data, userData: response.data });
-    console.log(data);
-    console.log(response.status);
-    console.log(response);
-  }
 
-  const responseFacebook = (response: any) => {
-    console.log(response);
+    const response = await api.post("usuarios", dadosCadastro);
+
+
+    const { profileObj } = data;
+
+    const { email: email_, familyName: nome_} = data.profileObj;
+
+    history.push("/cadastroinfo", { 
+      loginDTO: {
+        ...data,
+        email: email_,
+        nome: nome_,
+      }, 
+      userData: response.data
+    });
+
+    addToast({
+      type: "sucess",
+      title: "Cadastro realizado com sucesso",
+    });
+  }
+ 
+
+  const responseFacebook = async (response: any) => {
+    const dadosCadastro = {
+      email: response.userID + "@facebook.com",
+      nome: response.name,
+      tipo_conta: "facebook",
+      senha: response.userID + "!@#$J",
+      perfil: response.picture.data.url,
+    };
+
+    const apiresponse = await api.post("usuarios", dadosCadastro);
+
+    history.push("/cadastroinfo", { 
+      loginDTO: {
+        email: response.userID + "@facebook.com",
+        nome: response.name,
+      }, 
+      userData: apiresponse.data
+    });
+
+    addToast({
+      type: "sucess",
+      title: "Cadastro realizado com sucesso",
+    });
   };
 
   const componetClicked = (data: any) => {
@@ -158,6 +192,7 @@ const NovoCadastro: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <img src={Logo} className="logo"/>
           <li>
             {" "}
             <a href="/faq" className="cool-link">

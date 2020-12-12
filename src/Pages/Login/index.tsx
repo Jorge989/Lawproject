@@ -1,6 +1,7 @@
 //2846445278933444
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { FiArrowLeft } from "react-icons/fi";
+import Logo from "../../assets/logolaw.svg";
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -91,8 +92,12 @@ const Login: React.FC = () => {
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
-    const {data} = await api.post('/autenticar', {email: response.profileObj.email})
-    setAuthData({user: data.usuario, token: data.token});
+    const { data } = await api.post("/autenticar", {
+      email: response.profileObj.email,
+    });
+    setAuthData({ user: data.usuario, token: data.token });
+
+    console.log(data);
   };
   const responseGoogleFailed = (response: GoogleLoginResponse): void => {
     console.log(response);
@@ -120,6 +125,7 @@ const Login: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+          <img src={Logo} className="logo" />
           <li>
             {" "}
             <a href="/faq" className="cool-link">
