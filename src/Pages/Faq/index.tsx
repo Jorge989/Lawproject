@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
+import { FiMinus } from "react-icons/fi";
 import Logo from "../../assets/logolaw.svg";
 import {
   Container,
@@ -24,7 +25,11 @@ const Faq: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <button className="logo1">
+            <a href="/">
           <img src={Logo} className="logo" />
+          </a>
+          </button>
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -65,7 +70,9 @@ const Faq: React.FC = () => {
       <Blue>
         <div>
           <button onClick={() => setIsShow(!isShow)}>
-            <FiPlus
+          {isShow ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -74,9 +81,26 @@ const Faq: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
           <h1>O escritório atua em outras áreas, além da tributária?</h1>
+           
           {isShow && (
             <div className="Menu">
               <h1>
@@ -106,6 +130,7 @@ const Faq: React.FC = () => {
             />
           </button>
           <h1>O escritório atua com ênfase na área tributária, mas atende</h1>
+   
           {isShow1 && (
             <div className="Menu">
               <h1>

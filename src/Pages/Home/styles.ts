@@ -347,6 +347,44 @@ export const Blue = styled.div`
 
   margin-top: 100px;
 
+.date{
+  display:flex;
+ align-items:center;
+  width:20%;
+  height:15%;
+
+  position:absolute;
+  margin-left:65%;
+  margin-top:30%;
+  >h1{
+    color:#2828fc;
+font-size:30px;
+margin-left:4%;
+  }
+  >h3{
+    margin-top:-1%;
+    margin-left:10%;
+  }
+}
+.date1{
+  display:flex;
+ align-items:center;
+  width:18%;
+  height:15%;
+
+  position:absolute;
+  margin-left:47%;
+  margin-top:30%;
+  >h1{
+    color:#2828fc;
+font-size:30px;
+margin-left:3%;
+  }
+  >h3{
+    margin-top:-1%;
+    margin-left:1%;
+  }
+}
   h4 {
     margin-left: 50%;
 

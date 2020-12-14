@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+// import {Date1} from '../../Components/Date'
 import { BsFillQuestionOctagonFill } from "react-icons/bs";
 import {
   GoogleLoginResponse,
@@ -11,7 +11,16 @@ import Logo from "../../assets/logolaw.svg";
 import { useAuth } from "../../hooks/auth";
 import Person from "../../assets/person.svg";
 
+// interface ReturnDate {
+//   time: string;
+// }
 const Home: React.FC = () => {
+  const [ date, setDate ] = useState(new Date().toLocaleDateString());
+const [ time, setTime ] = useState(new Date().toLocaleTimeString());
+  setInterval(() => {
+    setDate(new Date().toLocaleDateString());
+    setTime(new Date().toLocaleTimeString());
+  }, 1000);
   const { signOut } = useAuth();
   const [tipoperfil, setTipoperfil] = useState("");
   const [isShow, setIsShow] = useState(false);
@@ -53,6 +62,7 @@ const Home: React.FC = () => {
   }, []);
   return (
     <Container>
+      
       <Header>
         <div className="cont">
       
@@ -124,7 +134,16 @@ const Home: React.FC = () => {
         </div>
       )}
 
+     
       <Blue>
+             <div className="date1">
+        <h3>Data:</h3>
+       <h1> {date}</h1>
+</div>
+      <div className="date">
+        <h3>Hora:</h3>
+       <h1> {time}</h1>
+</div>
         <div>
           <h1>Inova</h1>
           <h3>Advocacia</h3>
@@ -142,13 +161,17 @@ const Home: React.FC = () => {
                 marginTop: "6px",
               }}
             />
-        
+           
             FAQ<h4>(Perguntas frequantes)</h4>
             </a>
           </button>
+ 
           <Draw />
+
         </div>
+
       </Blue>
+
     </Container>
   );
 };

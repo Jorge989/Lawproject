@@ -328,7 +328,7 @@ const Cadastroinfo: React.FC = () => {
               <h2 className="nomeescrit">Nome do escritório </h2>
               <input
                 id="nomescritorio"
-                value={nomescritorio}
+                value={qtd}
                 className="nomE"
                 type="text"
                 placeholder="Qtd. funcionários"
@@ -338,7 +338,7 @@ const Cadastroinfo: React.FC = () => {
               <input
                 id="qtd"
                 onChange={(e) => setQtd(e.target.value)}
-                value={qtd}
+                value={nomescritorio}
                 className="Qtd"
                 type="text"
                 placeholder="Nome de escritório"

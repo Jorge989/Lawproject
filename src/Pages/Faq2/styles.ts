@@ -292,7 +292,7 @@ export const Blue = styled.div`
       max-width: 90%;
       justify-content: center;
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 400;
     }
   }
 
