@@ -44,6 +44,7 @@ const Profilepage: React.FC = () => {
   };
   return (
     <Container>
+
       {trasitions.map(({ item, props, key }) => (
         <animated.div
           key={key}
@@ -62,6 +63,7 @@ const Profilepage: React.FC = () => {
           }}
         ></animated.div>
       ))}
+
 
       <ProfileData>
         <h1>
