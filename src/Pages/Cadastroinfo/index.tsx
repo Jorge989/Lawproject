@@ -323,25 +323,27 @@ const Cadastroinfo: React.FC = () => {
 
             <div
               className="show"
-              style={{ visibility: isShow ? "visible" : "hidden" }}
+              // style={{ visibility: isShow ? "visible" : "hidden" }}
+              style={{ display: isShow ? "block" : "none" }}
             >
               <h2 className="nomeescrit">Nome do escritório </h2>
               <input
+         
                 id="nomescritorio"
-                value={qtd}
-                className="nomE"
+                value={nomescritorio}
+                 className="nomE"
                 type="text"
-                placeholder="Qtd. funcionários"
+                placeholder="Nome do escritório"
                 onChange={(e) => setNomeescritorio(e.target.value)}
               />
               <h2 className="qtdfuncionarios">Qtd. funcionários</h2>
               <input
                 id="qtd"
                 onChange={(e) => setQtd(e.target.value)}
-                value={nomescritorio}
+                value={qtd}
                 className="Qtd"
                 type="text"
-                placeholder="Nome de escritório"
+                placeholder="Qtd. de funcionários"
               />
             </div>
           </div>
