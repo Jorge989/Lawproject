@@ -20,7 +20,7 @@ export const Container = styled.button`
   &:hover {
     background-color: #2828fc;
 
-    .loading:after {
+    :after {
       content: "";
       animation: spin 500ms linear infinite;
       position: absolute;
@@ -34,6 +34,12 @@ export const Container = styled.button`
       border-top-color: transparent;
       border-left-color: transparent;
       border-radius: 50%;
+      animation:spin 500ms linear infinite;
+      opacity:0;
+    }
+
+:after{
+      opacity:1;
     }
     @keyframes spin {
       from {

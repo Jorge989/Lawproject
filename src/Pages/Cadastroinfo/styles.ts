@@ -288,7 +288,7 @@ export const Blue = styled.div`
       outline: 0;
       box-shadow: 0px 5px 5px #a4a4a4;
       cursor: pointer;
-      margin-top: 13.5%;
+      margin-top: 13%;
       margin-left: 82%;
 
       border-radius: 5px;
@@ -310,7 +310,7 @@ export const Blue = styled.div`
     > h5 {
       font-size: 30px;
       font-weight: 400;
-      margin-top: -39.5%;
+      margin-top: -42%;
       margin-left: 5.2%;
     }
     > svg {
@@ -318,7 +318,7 @@ export const Blue = styled.div`
       width: 30%;
       height: 240.5%;
       margin-left: 70%;
-      margin-top: -7.5%;
+      margin-top: -12.5%;
     }
 
     > h1 {

@@ -354,12 +354,12 @@ const Cadastroinfo: React.FC = () => {
             Precisaremos das
             <br /> seguintes informações
           </h5>
-          <h1>Bem-Vindo !</h1>
+          {/* <h1>Bem-Vindo !</h1> */}
           <Draw />
 
           <button type="button" onClick={handleSubmit}>
             {" "}
-            Proxímo
+            Próximo
           </button>
         </Form>
       </Blue>

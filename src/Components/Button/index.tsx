@@ -4,11 +4,11 @@ import { Container } from "./styles";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   return (
     // <Container type="button" {...rest}>
-    <Container type="button" className={isLoading ? "isLoading" : ""} {...rest}>
+    <Container type="button" className={isLoading ? "isLoading" : ""}  {...rest}>
       {children}
     </Container>
   );
