@@ -283,7 +283,6 @@ export const Blue = styled.div`
   margin-top: 100px;
 
   > Form {
-
     > button {
       z-index: 999;
       outline: 0;
@@ -344,22 +343,20 @@ export const Blue = styled.div`
       margin-top: 17.5%;
     }
     > h2.Telefone {
-      margin-left: 38.3%;
+      margin-left: 38.5%;
       margin-top: -4.2%;
     }
 
     .nomeescrit {
-      background-color:yellow;
       display: flex;
       flex-direction: row;
       margin-top: 1%;
-      width: 20%;
+      width: 25%;
       font-size: 17px;
       margin-left: 20%;
     }
     .qtdfuncionarios {
       display: flex;
-      background-color:yellow;
       flex-direction: row;
       margin-top: -9.5%;
       width: 20%;
@@ -367,8 +364,7 @@ export const Blue = styled.div`
       margin-left: 57%;
     }
     > div {
- 
-      /* > input {
+      > input {
         background-color: #fff;
         padding-left: 5px;
 
@@ -378,69 +374,63 @@ export const Blue = styled.div`
         border-radius: 5px;
         margin-left: 10%;
         outline: 0;
-   
-      } */
+      }
       display: flex;
       flex-direction: row;
 
       width: 100%;
       margin-top: 0%;
       height: 100%;
-   
 
       > input {
         background-color: #fff;
         padding-left: 5px;
-        z-index: 3;
-  z-index:1900;
+        z-index: 999;
+
         margin-top: -0.7%;
         width: 30%;
         height: 47px;
         border-radius: 5px;
         margin-left: 5.3%;
         outline: 0;
-      
       }
       > select {
-     
         outline: 0;
         padding-left: 5px;
         z-index: 999;
         width: 20%;
         margin-left: -8%;
         background-color: #fff;
-        
         height: 47px;
         margin-top: 9.5%;
         border-radius: 5px;
       }
       > .show {
         z-index: 999;
+        height: 35%;
         width: 90%;
         margin-top: 15%;
         margin-left: -38%;
-        background-color:red
       }
       .nomE {
         background-color: #fff;
         padding-left: 5px;
 
         margin-top: 1.3%;
-        width: 33%;
+        width: 25%;
         height: 47px;
         border-radius: 5px;
-        margin-left: 20%;
+        margin-left: 57%;
         outline: 0;
       }
       .Qtd {
         background-color: #fff;
         padding-left: 5px;
         margin-top: 1.3%;
-        z-index:999;
-      
-        margin-left: 56.5%;
 
-        width: 25%;
+        margin-left: 20%;
+
+        width: 33%;
         height: 47px;
         border-radius: 5px;
 

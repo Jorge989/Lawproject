@@ -151,14 +151,14 @@ const Cadastroinfo: React.FC = () => {
         const response = await api.post(
           "escritorios",
           {
-            nome: nomescritorio !== "" ? nomescritorio : nomecompleto,
+            nome: qtd !== "" ? qtd : 0,
             tipo_pag: "cartao_credito",
             plano: "trial",
             nick_name: nomecompleto,
             email: data.loginDTO.email,
             telefone: telput,
 
-            quantidade_advogados: qtd !== "" ? qtd : 0,
+            quantidade_advogados:  nomescritorio !== "" ? nomescritorio : nomecompleto ,
             tipo_escritorio: tipoperfil,
           },
           {
@@ -323,17 +323,15 @@ const Cadastroinfo: React.FC = () => {
 
             <div
               className="show"
-              // style={{ visibility: isShow ? "visible" : "hidden" }}
-              style={{ display: isShow ? "block" : "none" }}
+              style={{ visibility: isShow ? "visible" : "hidden" }}
             >
               <h2 className="nomeescrit">Nome do escritório </h2>
               <input
-         
                 id="nomescritorio"
                 value={nomescritorio}
-                 className="nomE"
+                className="nomE"
                 type="text"
-                placeholder="Nome do escritório"
+                placeholder="Qtd. funcionários"
                 onChange={(e) => setNomeescritorio(e.target.value)}
               />
               <h2 className="qtdfuncionarios">Qtd. funcionários</h2>
@@ -343,7 +341,7 @@ const Cadastroinfo: React.FC = () => {
                 value={qtd}
                 className="Qtd"
                 type="text"
-                placeholder="Qtd. de funcionários"
+                placeholder="Nome de escritório"
               />
             </div>
           </div>
