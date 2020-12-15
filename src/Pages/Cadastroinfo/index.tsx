@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import {} from "react-icons/fi";
+
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -243,6 +244,9 @@ const Cadastroinfo: React.FC = () => {
     setUrl(response.profileObj.imageUrl);
   };
   console.log(tipoperfil);
+
+
+
   return (
     <Container>
       <Header>

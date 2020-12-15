@@ -19,5 +19,29 @@ export const Container = styled.button`
   }
   &:hover {
     background-color: #2828fc;
+
+    .loading:after {
+      content: "";
+      animation: spin 500ms linear infinite;
+      position: absolute;
+      margin-top: 3.5%;
+      margin-left: 2%;
+      top: calc(50% - 0.5rem);
+      left: calc(50% -0.5rem);
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-radius: 50%;
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(380deg);
+      }
+    }
   }
 `;

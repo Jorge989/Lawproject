@@ -2,6 +2,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import Logo from "../../assets/logolaw.svg";
+
 import {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
@@ -209,6 +210,7 @@ const Login: React.FC = () => {
             />
 
             <Button type="submit" onClick={() => handleSubmit}>
+              
               Entrar
             </Button>
           </div>
