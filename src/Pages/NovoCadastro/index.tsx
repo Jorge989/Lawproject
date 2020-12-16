@@ -266,6 +266,7 @@ const NovoCadastro: React.FC = () => {
             />
 
             <Button
+            
               type="submit"
               onClick={() => {
                 handleSubmit;

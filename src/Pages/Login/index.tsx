@@ -50,39 +50,54 @@ const Login: React.FC = () => {
   const { addToast } = useToast();
 
   const handleSubmit = useCallback(
+    
     async (data: SigInFormData): Promise<void> => {
       try {
+     
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           email: Yup.string().required("E-mail obrigatório"),
           senha: Yup.string().required("Senha obrigatória"),
         });
+       
+        setLoading(true)
         await schema.validate(data, {
+          
           abortEarly: false,
         });
-
+      
+        
+     
         await signIn({
+          
           email: data.email,
           senha: data.senha,
         });
-    
+       
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-
+        setLoading(false)
         addToast({
           type: "error",
           title: "Erro na autenticação",
           description: "Ocorreu um erro ao fazer login, cheque as credenciais.",
         });
+       
       }
+    
+      // finally{
+      //   setLoading(false)
+      //   }
     },
     [signIn, addToast]
+    
   );
-
+  
+  const [loading, setLoading] = useState(false)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
@@ -209,7 +224,7 @@ const Login: React.FC = () => {
               placeholder="senha"
             />
 
-            <Button type="submit" onClick={() => handleSubmit}>
+            <Button type="submit"  isLoading={loading}onClick={() => handleSubmit}>
               
               Entrar
             </Button>
