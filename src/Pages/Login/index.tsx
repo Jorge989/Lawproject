@@ -45,59 +45,49 @@ interface SigInFormData {
   senha: string;
 }
 const Login: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const formRef = useRef<FormHandles>(null);
   const { signIn, setAuthData } = useAuth();
   const { addToast } = useToast();
 
   const handleSubmit = useCallback(
-    
     async (data: SigInFormData): Promise<void> => {
+      setLoading(true);
+
       try {
-     
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           email: Yup.string().required("E-mail obrigatório"),
           senha: Yup.string().required("Senha obrigatória"),
         });
-       
-        setLoading(true)
+
         await schema.validate(data, {
-          
           abortEarly: false,
         });
-      
-        
-     
+
         await signIn({
-          
           email: data.email,
           senha: data.senha,
         });
-       
       } catch (err) {
+        setLoading(false);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-        setLoading(false)
+
         addToast({
           type: "error",
           title: "Erro na autenticação",
           description: "Ocorreu um erro ao fazer login, cheque as credenciais.",
         });
-       
       }
-    
-      // finally{
-      //   setLoading(false)
-      //   }
     },
+
     [signIn, addToast]
-    
   );
-  
-  const [loading, setLoading] = useState(false)
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
@@ -119,14 +109,14 @@ const Login: React.FC = () => {
     });
     console.log(data);
   };
-  
+
   const responseGoogleFailed = (response: GoogleLoginResponse): void => {
     console.log(response);
   };
 
   const responseFacebook = async (response: any) => {
     console.log(response);
-     const { data } = await api.post("/autenticar", {
+    const { data } = await api.post("/autenticar", {
       email: response.userID + "@facebook.com",
     });
     setAuthData({ user: data.usuario, token: data.token });
@@ -154,10 +144,10 @@ const Login: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
-        <button className="logo1">
+          <button className="logo1">
             <a href="/">
-          <img src={Logo} className="logo" />
-          </a>
+              <img src={Logo} className="logo" />
+            </a>
           </button>
           <li>
             {" "}
@@ -185,7 +175,7 @@ const Login: React.FC = () => {
           </li>
         </div>
         <Entrar>
-        <Lockicon1 />
+          <Lockicon1 />
           <button>Entrar</button>
         </Entrar>
         <Entrar2>
@@ -224,8 +214,11 @@ const Login: React.FC = () => {
               placeholder="senha"
             />
 
-            <Button type="submit"  isLoading={loading}onClick={() => handleSubmit}>
-              
+            <Button
+              type="submit"
+              isLoading={loading}
+              onClick={() => handleSubmit}
+            >
               Entrar
             </Button>
           </div>

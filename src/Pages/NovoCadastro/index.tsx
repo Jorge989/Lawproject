@@ -33,17 +33,24 @@ import getValidationErrors from "../../utils/getValidationErros";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 import { useToast } from "../../hooks/toast";
-
+interface SigInFormData {
+  email: string;
+  senha: string;
+  nome: string;
+}
 const NovoCadastro: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
   const history = useHistory();
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
 
   const handleSubmit = useCallback(
-    async (data: object): Promise<void> => {
+    async (data: SigInFormData): Promise<void> => {
+      setLoading(true);
       try {
         formRef.current?.setErrors({});
+        
         const schema = Yup.object().shape({
           nome: Yup.string().required("Nome obrigatório"),
           email: Yup.string().required("E-mail obrigatório"),
@@ -55,11 +62,12 @@ const NovoCadastro: React.FC = () => {
             )
             .min(8, "No minimo 8 dígitos"),
         });
+        
         await schema.validate(data, {
           abortEarly: false,
         });
-
-        const response = await api.post("usuarios", data);   
+     
+        const response = await api.post("usuarios", data);
 
         history.push("/cadastroinfo", {
           loginDTO: data,
@@ -73,19 +81,21 @@ const NovoCadastro: React.FC = () => {
         // }
         // console.log(response.data);
       } catch (err) {
+        setLoading(false);
         console.log(err);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-
+       
         addToast({
           type: "error",
           title: "Erro na cadastro",
           description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
         });
       }
+
     },
     [addToast]
   );
@@ -118,7 +128,9 @@ const NovoCadastro: React.FC = () => {
     });
   }, []);
 
-  const responseGoogle = (response: GoogleLoginResponse | GoogleLoginResponseOffline): void => {
+  const responseGoogle = (
+    response: GoogleLoginResponse | GoogleLoginResponseOffline
+  ): void => {
     if (!("profileObj" in response)) return;
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
@@ -126,7 +138,9 @@ const NovoCadastro: React.FC = () => {
     handleLogin(response);
   };
 
-  async function handleLogin(data: GoogleLoginResponse | GoogleLoginResponseOffline) {
+  async function handleLogin(
+    data: GoogleLoginResponse | GoogleLoginResponseOffline
+  ) {
     if (!("profileObj" in data)) return;
     const dadosCadastro = {
       email: data.profileObj.email,
@@ -138,18 +152,17 @@ const NovoCadastro: React.FC = () => {
 
     const response = await api.post("usuarios", dadosCadastro);
 
-
     const { profileObj } = data;
 
-    const { email: email_, familyName: nome_} = data.profileObj;
+    const { email: email_, familyName: nome_ } = data.profileObj;
 
-    history.push("/cadastroinfo", { 
+    history.push("/cadastroinfo", {
       loginDTO: {
         ...data,
         email: email_,
         nome: nome_,
-      }, 
-      userData: response.data
+      },
+      userData: response.data,
     });
 
     addToast({
@@ -157,7 +170,6 @@ const NovoCadastro: React.FC = () => {
       title: "Cadastro realizado com sucesso",
     });
   }
- 
 
   const responseFacebook = async (response: any) => {
     const dadosCadastro = {
@@ -170,12 +182,12 @@ const NovoCadastro: React.FC = () => {
 
     const apiresponse = await api.post("usuarios", dadosCadastro);
 
-    history.push("/cadastroinfo", { 
+    history.push("/cadastroinfo", {
       loginDTO: {
         email: response.userID + "@facebook.com",
         nome: response.name,
-      }, 
-      userData: apiresponse.data
+      },
+      userData: apiresponse.data,
     });
 
     addToast({
@@ -192,10 +204,10 @@ const NovoCadastro: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
-        <button className="logo1">
+          <button className="logo1">
             <a href="/">
-          <img src={Logo} className="logo" />
-          </a>
+              <img src={Logo} className="logo" />
+            </a>
           </button>
           <li>
             {" "}
@@ -223,7 +235,7 @@ const NovoCadastro: React.FC = () => {
           </li>
         </div>
         <Entrar>
-        <Lockicon1 />
+          <Lockicon1 />
           <button>Entrar</button>
         </Entrar>
         <Entrar2>
@@ -266,7 +278,7 @@ const NovoCadastro: React.FC = () => {
             />
 
             <Button
-            
+             isLoading={loading}
               type="submit"
               onClick={() => {
                 handleSubmit;

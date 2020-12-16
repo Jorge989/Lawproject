@@ -44,8 +44,12 @@ interface HistoryUserData {
   senha: string;
   user: object;
 }
+interface SigInFormData {
 
+
+}
 const EsqueciSenha: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [data2, setData] = useState({});
   const location = useLocation<LocationState>();
   const history = useHistory();
@@ -66,7 +70,8 @@ const EsqueciSenha: React.FC = () => {
   const { id_usuario } = user ? JSON.parse(user) : "";
 
   const handleSubmit2 = useCallback(
-    async (data: object): Promise<void> => {
+    async (data: SigInFormData): Promise<void> => {
+      setLoading(true);
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
@@ -94,6 +99,7 @@ const EsqueciSenha: React.FC = () => {
             "Você estará recebendo um e-mail com um link para redefinir sua senha",
         });
       } catch (err) {
+       
         console.log(err);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
@@ -140,6 +146,7 @@ const EsqueciSenha: React.FC = () => {
           "você receberá em breve um e-mail com link para redefinir sua senha",
       });
     } catch (error) {
+      setLoading(false);
       addToast({
         type: "error",
         title: "Erro na cadastro",
@@ -242,6 +249,7 @@ const EsqueciSenha: React.FC = () => {
             />
 
             <Button
+              isLoading={loading}
               className="btn"
               type="submit"
               onClick={(e) => {
