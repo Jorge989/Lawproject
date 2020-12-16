@@ -174,6 +174,10 @@ const Cadastroinfo: React.FC = () => {
           loginDTO: data,
           userData: response.data,
         });
+        history.push("/home", {
+          loginDTO: data,
+          userData: response.data,
+        });
         await signIn({
           email: data.loginDTO.email,
           senha: data.loginDTO.senha,

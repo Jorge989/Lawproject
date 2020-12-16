@@ -24,14 +24,14 @@ export const Container = styled.div`
     justify-content: center;
     left: 80%;
     top: 63px;
-    margin-left: 22px;
+    margin-left: -9px;
     height: 90px;
     border-radius: 5px;
     background-color: #f6f6f6;
     text-decoration: none;
     box-shadow: 0px 0px 5px;
     color: #a4a4a4;
-    width: 180px;
+    width: 145px;
     > li {
       display: flex;
       flex-direction: column;
@@ -168,7 +168,7 @@ export const Header = styled.div`
     display: flex;
  justify-content: center;
  width: 25%;
- margin-top:-2%;
+ margin-top:-2.5%;
 height:25%;
  margin-left: -100%;
 
@@ -196,7 +196,7 @@ height:25%;
 
     cursor: pointer;
 
-    width: 55px;
+    width: 50px;
     outline: 0;
   }
 
@@ -309,7 +309,7 @@ export const Entrar = styled.div`
 
     padding: 1px 0px 0px 1px;
     display: flex;
-margin-top:-9%;
+margin-top:-8%;
     justify-content: space-between;
 
 
@@ -380,11 +380,81 @@ margin-left:4%;
 }
 .configure1{
   margin-top:1%;
+ 
   width:27%;
   margin-left:2%;
   font-family:Roboto;
   font-weight:400;
   font-size:22px;
+}
+
+.playstore{
+  z-index:999;
+margin-top:20%;
+  border-radius:5px;
+  width:14%;
+  margin-left:6%;
+  background-color:#FFFFFF;
+  border: 1px solid #141111;
+  cursor:pointer;
+  .baixar{
+    z-index:999;
+    width:85%;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:400;
+    margin-left:-2%;
+    margin-top:3%;
+  }
+  .logoplay{
+     z-index:999;
+    cursor:pointer;
+    width:18%;
+    margin-left:5%;
+    margin-top:5.5%;
+  }
+  .google{
+ 
+    width:100%;
+    font-size:19px;
+margin-top:14%;
+margin-left:-60%;
+font-family:Roboto;
+  }
+}
+.appstore{
+  
+  z-index:999;
+margin-top:-4.5%;
+  border-radius:5px;
+  width:14%;
+  margin-left:23%;
+  background-color:#FFFFFF;
+  border: 1px solid #141111;
+  cursor:pointer;
+.logoapp{
+  z-index:999;
+    cursor:pointer;
+    width:18%;
+    margin-left:5%;
+    margin-top:4.9%;
+}
+.baixara{
+  z-index:999;
+    width:85%;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:400;
+    margin-left:-3%;
+    margin-top:3%;
+}
+.googlea{
+  width:100%;
+    font-size:19px;
+margin-top:14%;
+margin-left:-73%;
+font-family:Roboto;
+}
 }
 .date1{
   position:absolute;
