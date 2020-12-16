@@ -196,6 +196,8 @@ export const Entrar2 = styled.div`
   margin-left: 900px;
 
   > button {
+    >a{
+      text-decoration:none;
     font-weight: 600;
 
     color: #000000;
@@ -212,6 +214,7 @@ export const Entrar2 = styled.div`
 
     &:hover {
       color: var(--bluebtn);
+    }
     }
   }
 

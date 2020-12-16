@@ -76,8 +76,9 @@ const Cadastroinfo: React.FC = () => {
   const history = useHistory();
 
   const data = history.location.state as PushedHistory;
-
   useEffect(() => {
+    const {loginDTO,  userData} = history.location.state as PushedHistory;
+    setNomecompleto(loginDTO.nome)
     console.log(data);
   });
 
@@ -169,7 +170,10 @@ const Cadastroinfo: React.FC = () => {
             },
           }
         );
-
+        history.push("/cadastroinfo", {
+          loginDTO: data,
+          userData: response.data,
+        });
         await signIn({
           email: data.loginDTO.email,
           senha: data.loginDTO.senha,

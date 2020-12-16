@@ -80,22 +80,25 @@ const NovoCadastro: React.FC = () => {
 
         // }
         // console.log(response.data);
+    
       } catch (err) {
-        setLoading(false);
+    
         console.log(err);
+        setLoading(false)
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-       
+
         addToast({
           type: "error",
           title: "Erro na cadastro",
-          description: `Ocorreu um erro ao fazer cadastro, tente novamente.`,
+          description: `Ocorreu um erro ao fazer cadastro,senha deve conter ao menos um caráctere especial um número, tente novamente.
+          `,
         });
       }
-
+     ;
     },
     [addToast]
   );
@@ -236,7 +239,7 @@ const NovoCadastro: React.FC = () => {
         </div>
         <Entrar>
           <Lockicon1 />
-          <button>Entrar</button>
+          <button> <a href="/login">Entrar</a></button>
         </Entrar>
         <Entrar2>
           <button>Teste Grátis</button>

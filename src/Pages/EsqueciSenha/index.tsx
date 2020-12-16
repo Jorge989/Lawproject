@@ -145,6 +145,7 @@ const EsqueciSenha: React.FC = () => {
         title:
           "você receberá em breve um e-mail com link para redefinir sua senha",
       });
+      setLoading(false);
     } catch (error) {
       setLoading(false);
       addToast({

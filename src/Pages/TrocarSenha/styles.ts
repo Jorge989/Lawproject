@@ -20,8 +20,8 @@ export const Container = styled.div`
     height: 3%;
     width: 3%;
 
-    margin-left: -11%;
-    margin-top: 23%;
+    margin-left: -11.6%;
+    margin-top: 22.7%;
 
     &:hover {
       color: blue;
@@ -270,6 +270,7 @@ export const Entrar = styled.div`
       display: none;
     }
   }
+  
 `;
 
 export const Blue = styled.div`
@@ -380,6 +381,7 @@ export const Blue = styled.div`
       font-size: 15.7px;
       color: #141414;
     }
+    
   }
 
   @media (max-width: 601px) {
@@ -498,8 +500,10 @@ export const Blue = styled.div`
         margin-left: 7%;
         outline: 0;
       }
+      
     }
   }
+
 `;
 
 export const GoogleLogin = styled(CustomGoogleLogin)`

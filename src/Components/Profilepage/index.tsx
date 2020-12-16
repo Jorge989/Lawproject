@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, config } from "react-spring";
-import { Container, Banner, ProfileData, EditiButton, Video } from "./style";
+import { Container, Banner, ProfileData, EditiButton, Video,Celular } from "./style";
 import Lottie from "react-lottie";
 import ReactPlayer from "react-player";
 
@@ -90,7 +90,9 @@ const Profilepage: React.FC = () => {
           </div>
         </Video>
       </ProfileData>
+<Celular>
 
+</Celular>
       <Banner />
     </Container>
   );

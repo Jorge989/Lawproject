@@ -4,6 +4,9 @@ interface ContainerProps {
 }
 export const Container = styled.button<ContainerProps>`
   outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0px 5px 5px #a4a4a4;
   cursor: pointer;
   margin-top: 1.2%;
@@ -25,11 +28,8 @@ export const Container = styled.button<ContainerProps>`
       &:after {
           content: "";
           animation: spin 500ms linear infinite;
-          position: absolute;
-          margin-top: 3.5%;
-          margin-left: 2%;
-          top: calc(50% - 0.5rem);
-          left: calc(50% -0.5rem);
+          position: relative;
+          margin-left: 1rem;
           width: 1rem;
           height: 1rem;
           border: 2px solid #fff;

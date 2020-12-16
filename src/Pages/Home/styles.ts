@@ -343,7 +343,7 @@ export const Blue = styled.div`
   box-shadow: -4px 30px 30px #7b7b7b;
 
   width: 90%;
-  height: 600px;
+  height: 550px;
 
   margin-top: 100px;
 
@@ -354,8 +354,8 @@ export const Blue = styled.div`
   height:15%;
 
   position:absolute;
-  margin-left:65%;
-  margin-top:30%;
+  margin-left:70%;
+  margin-top:38%;
   >h1{
     color:#2828fc;
 font-size:30px;
@@ -366,15 +366,36 @@ margin-left:4%;
     margin-left:10%;
   }
 }
+.bemvindo{
+  margin-top:-45%;
+  margin-left:2%;
+  font-weight:500;
+}
+.configure{
+  margin-top:1%;
+  margin-left:2%;
+  font-family:Roboto;
+  font-weight:400;
+  font-size:24px;
+}
+.configure1{
+  margin-top:1%;
+  width:27%;
+  margin-left:2%;
+  font-family:Roboto;
+  font-weight:400;
+  font-size:22px;
+}
 .date1{
+  position:absolute;
   display:flex;
  align-items:center;
   width:18%;
   height:15%;
 
   position:absolute;
-  margin-left:47%;
-  margin-top:30%;
+  margin-left:50%;
+  margin-top:38%;
   >h1{
     color:#2828fc;
 font-size:30px;

@@ -15,6 +15,7 @@ import Person from "../../assets/person.svg";
 //   time: string;
 // }
 const Home: React.FC = () => {
+  
   const [ date, setDate ] = useState(new Date().toLocaleDateString());
 const [ time, setTime ] = useState(new Date().toLocaleTimeString());
   setInterval(() => {
@@ -136,18 +137,13 @@ const [ time, setTime ] = useState(new Date().toLocaleTimeString());
 
      
       <Blue>
-             <div className="date1">
-        <h3>Data:</h3>
-       <h1> {date}</h1>
-</div>
-      <div className="date">
-        <h3>Hora:</h3>
-       <h1> {time}</h1>
-</div>
+      {/* <h1>Ola{user.name}</h1> */}
+     
+    
         <div>
           <h1>Inova</h1>
           <h3>Advocacia</h3>
-
+    
           <button>
           <a href="/faq2">
             {" "}
@@ -167,9 +163,18 @@ const [ time, setTime ] = useState(new Date().toLocaleTimeString());
           </button>
  
           <Draw />
-
+          <div className="date1">
+        <h3>Data:</h3>
+       <h1> {date}</h1>
+</div>
+      <div className="date">
+        <h3>Hora:</h3>
+       <h1> {time}</h1>
+</div>
         </div>
-
+        <h1 className="bemvindo">Bem-vindo Jorge</h1>
+      <h3 className="configure">Configure seu aplicativo !</h3>
+      <h3 className="configure1">Para começar a configurar o app, selecione o Painel no menu Para ver as próximas etapas.</h3>
       </Blue>
 
     </Container>

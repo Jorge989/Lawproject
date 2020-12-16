@@ -69,6 +69,10 @@ const Login: React.FC = () => {
           email: data.email,
           senha: data.senha,
         });
+        addToast({
+          type: "sucess",
+          title: "Login realizado com sucesso",
+        });
       } catch (err) {
         setLoading(false);
         if (err instanceof Yup.ValidationError) {
@@ -179,7 +183,7 @@ const Login: React.FC = () => {
           <button>Entrar</button>
         </Entrar>
         <Entrar2>
-          <button>Teste Grátis</button>
+          <button><a href="/novocadastro">Teste Grátis</a></button>
         </Entrar2>
       </Header>
 

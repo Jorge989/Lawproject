@@ -42,8 +42,9 @@ interface HistoryUserData {
   senha: string;
   user: object;
 }
-
+interface SigInFormData {}
 const NovoCadastro: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [data2, setData] = useState({});
   const location = useLocation<LocationState>();
   const history = useHistory();
@@ -63,7 +64,8 @@ const NovoCadastro: React.FC = () => {
   const { id_usuario } = user ? JSON.parse(user) : "";
 
   const handleSubmit = useCallback(
-    async (data: object): Promise<void> => {
+    async (data: SigInFormData): Promise<void> => {
+      setLoading(true);
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
@@ -75,10 +77,11 @@ const NovoCadastro: React.FC = () => {
             )
             .min(8, "No minimo 8 dígitos"),
         });
+       
         await schema.validate(data, {
           abortEarly: false,
         });
-
+       
         // Daí aqui 👇👇👇 você tava chamando a URL errada por 2 motivos
         // 1° /usuarios/trocar_senha?OIAUDHISUHADISUDHAISJKDNAKSJDAIUSDH
         // 2° Porque primeiramente aquela variável 'id_usuario' estava com o valor
@@ -105,26 +108,31 @@ const NovoCadastro: React.FC = () => {
 
         // }
         // console.log(response.data);
+         
       } catch (err) {
+        setLoading(false);
         console.log(err);
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-
+       
         addToast({
           type: "error",
           title: "Erro ao alterar senha",
           description: `Ocorreu um erro ao alterar senha, tente novamente`,
         });
+      
       }
+      
     },
+    
     [addToast]
   );
 
   const [name, setName] = useState("");
-
+  
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [url, setUrl] = useState("");
@@ -280,7 +288,7 @@ placeholder="email"
               placeholder="Senha"
             />
 
-            <Button className="btn" type="submit" onClick={() => handleSubmit}>
+            <Button     isLoading={loading} className="btn" type="submit" onClick={() => handleSubmit}>
               Confirmar
             </Button>
           </div>

@@ -258,6 +258,8 @@ export const Entrar = styled.div`
   top: 15px;
 
   > button {
+    >a{
+      text-decoration:none;
     font-weight: 600;
     font-size: 19px;
     color: #000000;
@@ -274,7 +276,7 @@ export const Entrar = styled.div`
 
     &:hover {
       color: var(--bluebtn);
-    }
+    }}
   }
 
   @media (max-width: 601px) {

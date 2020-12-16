@@ -30,9 +30,21 @@ export const Container = styled.div`
   }
 `;
 
-export const Banner = styled(Logo)`
-  flex-shrink: 0;
+ export const Banner = styled(Logo)`
+   flex-shrink: 0;
 
+   > strong {
+     background: #2a2afc;
+     border-radius: 4px;
+     z-index: 2;
+     font-weight: lighter;     box-shadow: 0px 1px 6px 0px #353535;     width: 145px;     height: 38px;
+    margin-top: 0px;
+    margin-left: 200px;
+  }
+ `;
+export const Celular = styled.div`
+  flex-shrink: 0;
+background-image: src("../../styles/icons");
   > strong {
     background: #2a2afc;
     border-radius: 4px;
