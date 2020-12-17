@@ -483,7 +483,7 @@ height:70%;
  
  width:100%;
  font-size:18px;
-margin-top:-3%;
+margin-top:-3.6%;
 margin-left:31%;
 font-family:Roboto;
 }
