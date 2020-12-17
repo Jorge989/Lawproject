@@ -94,7 +94,7 @@ const NovoCadastro: React.FC = () => {
         addToast({
           type: "error",
           title: "Erro na cadastro",
-          description: `Ocorreu um erro ao fazer cadastro,senha deve conter ao menos um caráctere especial um número, tente novamente.
+          description: `Ocorreu um erro ao fazer cadastro, senha deve conter ao menos um caráctere especial um número, tente novamente.
           `,
         });
       }

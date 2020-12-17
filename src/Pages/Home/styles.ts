@@ -387,75 +387,119 @@ margin-left:4%;
   font-weight:400;
   font-size:22px;
 }
-
-.playstore{
-  z-index:999;
-margin-top:20%;
-  border-radius:5px;
-  width:14%;
-  margin-left:6%;
-  background-color:#FFFFFF;
-  border: 1px solid #141111;
-  cursor:pointer;
+.all{
+  margin-left:2%;
+  margin-top:-2%;
+  display:flex;
+  flex-direction:row;
+  padding:10px;
+  justify-content:center;
+  align-items:center;
+}
+.btn1{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+ 
+  width:17%;
+  height:15%;
+  margin-top:0%;
+  margin-left:-60%;
+  .logoplay{
+     z-index:999;
+    cursor:pointer;
+    width:21%;
+    margin-left:5%;
+    margin-top:5.9%;
+  }
   .baixar{
     z-index:999;
     width:85%;
     cursor:pointer;
     font-size:17px;
     font-weight:400;
-    margin-left:-2%;
-    margin-top:3%;
-  }
-  .logoplay{
-     z-index:999;
-    cursor:pointer;
-    width:18%;
-    margin-left:5%;
-    margin-top:5.5%;
+    margin-left:32%;
+    margin-top:-26%;
+    &:hover {
+      color: #2828fc;
+    }
+ 
+    
   }
   .google{
  
-    width:100%;
-    font-size:19px;
-margin-top:14%;
-margin-left:-60%;
+ width:100%;
+ font-size:18px;
+margin-top:-3%;
+margin-left:31%;
 font-family:Roboto;
-  }
 }
-.appstore{
-  
+>a{
+  text-decoration:none;
   z-index:999;
-margin-top:-4.5%;
+margin-top:1%;
   border-radius:5px;
-  width:14%;
-  margin-left:23%;
+  width:80%;
+height:70%;
+  margin-left:0%;
   background-color:#FFFFFF;
+
   border: 1px solid #141111;
   cursor:pointer;
-.logoapp{
-  z-index:999;
+}}
+
+
+.btn2{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+ 
+  width:17%;
+  height:15%;
+  margin-top:-0%;
+  margin-left:0%;
+  .logoapp{
+     z-index:999;
     cursor:pointer;
-    width:18%;
+    width:21%;
     margin-left:5%;
-    margin-top:4.9%;
-}
-.baixara{
-  z-index:999;
+    margin-top:5.1%;
+  }
+  .baixara{
+    z-index:999;
     width:85%;
     cursor:pointer;
     font-size:17px;
     font-weight:400;
-    margin-left:-3%;
-    margin-top:3%;
-}
-.googlea{
-  width:100%;
-    font-size:19px;
-margin-top:14%;
-margin-left:-73%;
+    margin-left:32%;
+    margin-top:-26.5%;
+    &:hover {
+      color: #2828fc;
+    }
+ 
+    
+  }
+  .googlea{
+ 
+ width:100%;
+ font-size:18px;
+margin-top:-3%;
+margin-left:31%;
 font-family:Roboto;
 }
-}
+>a{
+  text-decoration:none;
+  z-index:999;
+margin-top:1%;
+  border-radius:5px;
+  width:80%;
+height:70%;
+  margin-left:0%;
+  background-color:#FFFFFF;
+
+  border: 1px solid #141111;
+  cursor:pointer;
+}}
 .date1{
   position:absolute;
   display:flex;

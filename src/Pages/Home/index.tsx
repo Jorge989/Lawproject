@@ -11,8 +11,8 @@ import { Container, Header, Entrar, Blue, Draw } from "./styles";
 import Logo from "../../assets/logolaw.svg";
 import { useAuth } from "../../hooks/auth";
 import Person from "../../assets/person.svg";
-import Appstore from '../../assets/Appstore.svg'
-import Playstore from '../../assets/Playstore.svg'
+import Appstore from "../../assets/Appstore.svg";
+import Playstore from "../../assets/Playstore.svg";
 
 // interface ReturnDate {
 //   time: string;
@@ -21,12 +21,10 @@ const Home: React.FC = () => {
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   setInterval(() => {
-    
     setDate(new Date().toLocaleDateString());
     setTime(new Date().toLocaleTimeString());
   }, 1000);
-  const { signOut, user:any } = useAuth();
- 
+  const { signOut, user: any } = useAuth();
 
   const [tipoperfil, setTipoperfil] = useState("");
   const [isShow, setIsShow] = useState(false);
@@ -52,9 +50,7 @@ const Home: React.FC = () => {
     setIsShow(false);
   }
 
-  const responseGoogleFailed = (response: GoogleLoginResponse): void => {
-  
-  };
+  const responseGoogleFailed = (response: GoogleLoginResponse): void => {};
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://embed.tawk.to/5fc6bb0ba1d54c18d8ef660f/default";
@@ -145,7 +141,7 @@ const Home: React.FC = () => {
 
           <button>
             <a href="/faq2">
-              {" "}
+              {/* {" "} */}
               <BsFillQuestionOctagonFill
                 size={25}
                 style={{
@@ -176,16 +172,27 @@ const Home: React.FC = () => {
           Para começar a configurar o app, selecione o Painel no menu Para ver
           as próximas etapas.
         </h3>
-        <button className="playstore">
+        <div className="all">
+        <div className="btn1">
+        <a  className="playstore" href="https://play.google.com/store/apps/details?id=com.dts.freefireth">
+        {/* <button className="playstore"> */}
           <img className="logoplay" src={Playstore}></img>
+
           <h3 className="baixar">Baixar no</h3>
           <h3 className="google">Google Play</h3>
-        </button>
-        <button className="appstore">
-        <img className="logoapp" src={Appstore}></img>
-        <h3 className="baixara">Baixar no</h3>
+        {/* </button> */}
+        </a>
+        </div>
+        <div className="btn2">
+        <a  className="appstore" href="https://play.google.com/store/apps/details?id=com.dts.freefireth">
+       
+          <img className="logoapp" src={Appstore}></img>
+          <h3 className="baixara">Baixar no</h3>
           <h3 className="googlea">App Store</h3>
-        </button>
+          </a>
+          </div>
+          </div>
+       
       </Blue>
     </Container>
   );

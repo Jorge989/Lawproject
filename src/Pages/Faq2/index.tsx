@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
+import { FiMinus } from "react-icons/fi";
 import Logo from "../../assets/logolaw.svg";
 import {
   Container,
@@ -24,7 +25,11 @@ const Faq2: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <button className="logo1">
+            <a href="/home">
           <img src={Logo} className="logo" />
+          </a>
+          </button>
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -63,9 +68,11 @@ const Faq2: React.FC = () => {
       </Header>
 
       <Blue>
-        <div>
+      <div>
           <button onClick={() => setIsShow(!isShow)}>
-            <FiPlus
+          {isShow ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -74,9 +81,26 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
           <h1>O escritório atua em outras áreas, além da tributária?</h1>
+           
           {isShow && (
             <div className="Menu">
               <h1>
@@ -93,8 +117,12 @@ const Faq2: React.FC = () => {
               </h1>
             </div>
           )}
-          <button onClick={() => setIsShow1(!isShow1)}>
-            <FiPlus
+      
+
+      <button onClick={() => setIsShow1(!isShow1)}>
+          {isShow1 ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -103,9 +131,27 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
-          <h1>O escritório atua com ênfase na área tributária, mas atende</h1>
+          <h1>O que devo fazer para contratar um advogado?
+</h1>
+           
           {isShow1 && (
             <div className="Menu">
               <h1>
@@ -122,9 +168,10 @@ const Faq2: React.FC = () => {
               </h1>
             </div>
           )}
+         <button onClick={() => setIsShow3(!isShow3)}>
+          {isShow3 ? 
+            <FiMinus
 
-          <button onClick={() => setIsShow2(!isShow2)}>
-            <FiPlus
               size={50}
               style={{
                 color: "#0058FF",
@@ -133,27 +180,10 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
-          </button>
-          <h1>Seus clientes em outras áreas do direito, incluindo</h1>
-          {isShow2 && (
-            <div className="Menu">
-              <h1>
-                Lorem Ipsum é simplesmente uma simulação de texto da indústria
-                tipográfica e de impressos, e vem sendo utilizado desde o século
-                XVI, quando um impressor desconhecido pegou uma bandeja de tipos
-                e os embaralhou para fazer um livro de modelos de tipos. Lorem
-                Ipsum sobreviveu não só a cinco séculos, como também ao salto
-                para a editoração eletrônica, permanecendo essencialmente
-                inalterado. Se popularizou na década de 60, quando a Letraset
-                lançou decalques contendo passagens de Lorem Ipsum, e mais
-                recentemente quando passou a ser integrado a softwares de
-                editoração eletrônica como Aldus PageMaker.
-              </h1>
-            </div>
-          )}
-          <button onClick={() => setIsShow3(!isShow3)}>
-            <FiPlus
+:
+               <FiPlus
               size={50}
               style={{
                 color: "#0058FF",
@@ -161,10 +191,16 @@ const Faq2: React.FC = () => {
                 position: "absolute",
                 marginLeft: "-60px",
                 marginTop: "-5px",
-              }}
-            />
+              }} 
+              
+            />}
+
+
+        
           </button>
-          <h1>Societário, civil e administrativo.</h1>
+          <h1>Como é a cobrança de honorários?
+</h1>
+           
           {isShow3 && (
             <div className="Menu">
               <h1>
@@ -181,8 +217,10 @@ const Faq2: React.FC = () => {
               </h1>
             </div>
           )}
-          <button onClick={() => setIsShow4(!isShow4)}>
-            <FiPlus
+          <button onClick={() => setIsShow2(!isShow2)}>
+          {isShow2 ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -191,10 +229,28 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
-          <h1>O que devo fazer para contratar um advogado?</h1>
-          {isShow4 && (
+          <h1>
+Como faço para contatar o escritório? </h1>
+           
+          {isShow2 && (
             <div className="Menu">
               <h1>
                 Lorem Ipsum é simplesmente uma simulação de texto da indústria
@@ -211,8 +267,10 @@ const Faq2: React.FC = () => {
             </div>
           )}
 
-          <button onClick={() => setIsShow5(!isShow5)}>
-            <FiPlus
+<button onClick={() => setIsShow4(!isShow4)}>
+          {isShow4 ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -221,10 +279,27 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
-          <h1>Como é a cobrança de honorários?</h1>
-          {isShow5 && (
+          <h1>O escritório atua em outras áreas, além da tributária?</h1>
+           
+          {isShow4 && (
             <div className="Menu">
               <h1>
                 Lorem Ipsum é simplesmente uma simulação de texto da indústria
@@ -240,8 +315,10 @@ const Faq2: React.FC = () => {
               </h1>
             </div>
           )}
-          <button onClick={() => setIsShow6(!isShow6)}>
-            <FiPlus
+           <button onClick={() => setIsShow5(!isShow5)}>
+          {isShow5 ? 
+            <FiMinus
+
               size={50}
               style={{
                 color: "#0058FF",
@@ -250,10 +327,27 @@ const Faq2: React.FC = () => {
                 marginLeft: "-60px",
                 marginTop: "-5px",
               }}
+
             />
+:
+               <FiPlus
+              size={50}
+              style={{
+                color: "#0058FF",
+                width: "30px",
+                position: "absolute",
+                marginLeft: "-60px",
+                marginTop: "-5px",
+              }} 
+              
+            />}
+
+
+        
           </button>
-          <h1>Como faço para contatar o escritório? </h1>
-          {isShow6 && (
+          <h1>O que devo fazer para contratar um advogado</h1>
+           
+          {isShow5 && (
             <div className="Menu">
               <h1>
                 Lorem Ipsum é simplesmente uma simulação de texto da indústria
