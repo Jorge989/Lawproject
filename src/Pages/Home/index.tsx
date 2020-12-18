@@ -174,7 +174,7 @@ const Home: React.FC = () => {
         </h3>
         <div className="all">
         <div className="btn1">
-        <a  className="playstore" href="https://play.google.com/store/apps/details?id=com.dts.freefireth">
+        <a  className="playstore" href="https://play.google.com/store/apps/details?id=com.actionsys.inventario">
         {/* <button className="playstore"> */}
           <img className="logoplay" src={Playstore}></img>
 

@@ -12,19 +12,8 @@ export const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   z-index: 999;
+  
 
-  .eye {
-    z-index: 999;
-    display: none;
-    outline: 0;
-    height: 3%;
-    width: 20020px;
-    height: 20020px;
-    margin-left: 200%;
-    margin-top: 10%;
-    position: absolute;
-    background-color: red;
-  }
 `;
 
 export const Header = styled.div`
@@ -41,8 +30,9 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-
+ 
   > div {
+    
     position: absolute;
     display: flex;
     justify-content: center;
@@ -124,7 +114,22 @@ export const Header = styled.div`
     margin-left: 38px;
     transition: width 0.3s;
   }
+  .logo1{
+ 
+ display: flex;
+ justify-content: center;
+ width: 25%;
+ margin-top:-2%;
+height:25%;
+ margin-left: -100%;
 
+
+}
+  .logo {
+
+    width: 90%;
+
+  }
   > svg {
     margin-left: 1050px;
     margin-top: -3px;
@@ -152,6 +157,7 @@ export const Header = styled.div`
         color: var(--bluebtn);
       }
     }
+    
     > svg {
       display: none;
     }
@@ -282,8 +288,25 @@ export const Blue = styled.div`
   height: 480px;
 
   margin-top: 100px;
-
+ 
   > Form {
+
+    
+     .eye1 {
+    z-index: 999;
+width:5%;
+height:5%;
+background-position: 50% 50%;
+    outline: 0;
+cursor:pointer;
+position:relative;
+    margin-left: 83%;
+    margin-top: 21.5%;
+
+    &:hover {
+      color: blue;
+    }
+  }
     .btn {
       margin-top: 19px;
     }
@@ -295,8 +318,9 @@ export const Blue = styled.div`
       color: #141111;
       font-size: 35px;
       font-weight: bold;
-      margin-left: 54%;
-      margin-top: -72%;
+      margin-left: 53.2%;
+      margin-top: -70%;
+     
     }
     > div {
       > h2 {
@@ -304,7 +328,7 @@ export const Blue = styled.div`
         width: 40%;
         height: 20.7px;
         display: flex;
-
+     
         margin-left: 62.7%;
         font-size: 17px;
         margin-top: 5px;
@@ -498,6 +522,7 @@ export const Blue = styled.div`
       }
     }
   }
+  
 `;
 
 export const GoogleLogin = styled(CustomGoogleLogin)`

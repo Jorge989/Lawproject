@@ -16,7 +16,7 @@ export const Container = styled.div`
 
   > .eye {
     z-index: 999;
-
+cursor:pointer;
     outline: 0;
     height: 3%;
     width: 3%;

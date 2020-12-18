@@ -156,6 +156,7 @@ const EsqueciSenha: React.FC = () => {
     }
   }
 
+  
   const [mail, setMail] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
   const [inputType, setInputType] = useState("password");

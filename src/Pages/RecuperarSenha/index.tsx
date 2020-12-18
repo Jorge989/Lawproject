@@ -30,6 +30,7 @@ import {
   Draw,
 } from "./styles";
 import api from "../../services/api";
+import Logo from "../../assets/logolaw.svg";
 import * as Yup from "yup";
 import { useParams } from "react-router-dom";
 import getValidationErrors from "../../utils/getValidationErros";
@@ -183,6 +184,11 @@ const RecuperarSenha: React.FC = () => {
     <Container>
       <Header>
         <div className="cont">
+        <button className="logo1">
+            <a href="/">
+              <img src={Logo} className="logo" />
+            </a>
+          </button>
           <li>
             {" "}
             <a href="/faq" className="cool-link">
@@ -252,7 +258,7 @@ const RecuperarSenha: React.FC = () => {
               onChange={(e) => setSenha(e.target.value)}
               placeholder="senha"
             />
-
+  
             <Button
               className="btn"
               type="submit"
@@ -265,31 +271,17 @@ const RecuperarSenha: React.FC = () => {
             </Button>
           </div>
           <h1>Definir Nova Senha</h1>
-
-          {/* <h3>Alterar Senha</h3> */}
-
-          {/* <h4>ou acesse rapidamente!</h4> */}
-
+        
+         
+       
           <Draw />
-
-          {/* 
-<GoogleLogin 
-    clientId="211368015593-fucd3no6bv208m9iuf809l9f72ulmejr.apps.googleusercontent.com"
-    render={renderProps => (
-      <button  className="btngoogle"  onClick={renderProps.onClick} disabled={renderProps.disabled}><Googleicon/></button>
-    )}
-    buttonText="Login"
-    onSuccess={responseGoogle}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-    
-    />
-<button><a href="login">Já possui login?</a></button> */}
-        </Form>
-      </Blue>
-      <button onClick={togglePasswordVisiblity} type="button" className="eye">
-        {passwordShown ? <FiEye size={100} /> : <FiEyeOff size={100} />}
+          <button onClick={togglePasswordVisiblity} type="button" className="eye1">
+        {passwordShown ? <FiEye size={21} /> : <FiEyeOff size={21} />}
       </button>
+
+        </Form>
+  
+      </Blue>
     </Container>
   );
 };

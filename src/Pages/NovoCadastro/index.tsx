@@ -80,23 +80,38 @@ const NovoCadastro: React.FC = () => {
 
         // }
         // console.log(response.data);
-    
+        if ( response.data) {
+          addToast({
+            type: "error",
+            title: "Erro na cadastro",
+            description: `Usuário já cadastrado.
+            `,
+          });}
       } catch (err) {
-    
+     
         console.log(err);
         setLoading(false)
         if (err instanceof Yup.ValidationError) {
           console.log(err);
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
+          
+          addToast({
+            type: "error",
+            title: "Erro na cadastro",
+            description: `Ocorreu um erro ao fazer cadastro, senha deve conter ao menos um caráctere especial um número, tente novamente.
+            `,
+          });
         }
-
-        addToast({
-          type: "error",
-          title: "Erro na cadastro",
-          description: `Ocorreu um erro ao fazer cadastro, senha deve conter ao menos um caráctere especial um número, tente novamente.
-          `,
-        });
+        if ( err.response?.data) {
+          addToast({
+            type: "error",
+            title: "Erro na cadastro",
+            description: `Usuário já cadastrado.
+            `,
+          });}
+          
+       
       }
      ;
     },
@@ -180,7 +195,7 @@ const NovoCadastro: React.FC = () => {
       nome: response.name,
       tipo_conta: "facebook",
       senha: response.userID + "!@#$J",
-      perfil: response.picture.data.url,
+      perfil: response.picture?.data.url,
     };
 
     const apiresponse = await api.post("usuarios", dadosCadastro);
