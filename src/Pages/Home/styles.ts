@@ -23,10 +23,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     left: 80%;
-    top: 63px;
-    margin-left: -9px;
+    top: 55px;
+    margin-left: 1%;
     height: 90px;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: #f6f6f6;
     text-decoration: none;
     box-shadow: 0px 0px 5px;
@@ -45,7 +45,7 @@ export const Container = styled.div`
       font-size: 16.5px;
       letter-spacing: 2px;
       margin-left: 10px;
-      font-weight: 500;
+      font-weight: 400;
       color: #0d0d0d;
       padding: 2.5px;
       outline: 0;
@@ -295,13 +295,16 @@ export const Entrar = styled.div`
   justify-content: space-between;
 
   align-items: center;
-  width: 10%;
+
 
   display: flex;
 
   margin-left: 760px;
-  top: 15px;
-
+  
+.menuzinho{
+  font-size:19px;
+  font-weight:500;
+}
   > button {
     font-weight: 600;
     font-size: 19px;

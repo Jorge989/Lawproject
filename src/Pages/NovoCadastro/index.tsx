@@ -80,13 +80,13 @@ const NovoCadastro: React.FC = () => {
 
         // }
         // console.log(response.data);
-        if ( response.data) {
-          addToast({
-            type: "error",
-            title: "Erro na cadastro",
-            description: `Usuário já cadastrado.
-            `,
-          });}
+        // if ( response.data) {
+        //   addToast({
+        //     type: "error",
+        //     title: "Erro na cadastro",
+        //     description: `Usuário já cadastrado.
+        //     `,
+        //   });}
       } catch (err) {
      
         console.log(err);
@@ -221,6 +221,7 @@ const NovoCadastro: React.FC = () => {
   return (
     <Container>
       <Header>
+    
         <div className="cont">
           <button className="logo1">
             <a href="/">
@@ -259,6 +260,7 @@ const NovoCadastro: React.FC = () => {
         <Entrar2>
           <button>Teste Grátis</button>
         </Entrar2>
+   
       </Header>
 
       <Blue>

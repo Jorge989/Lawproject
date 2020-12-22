@@ -69,10 +69,10 @@ const Login: React.FC = () => {
           email: data.email,
           senha: data.senha,
         });
-        addToast({
-          type: "sucess",
-          title: "Login realizado com sucesso",
-        });
+        // addToast({
+        //   type: "sucess",
+        //   title: "Login realizado com sucesso",
+        // });
       } catch (err) {
         setLoading(false);
         if (err instanceof Yup.ValidationError) {
@@ -107,10 +107,10 @@ const Login: React.FC = () => {
       email: response.profileObj.email,
     });
     setAuthData({ user: data.usuario, token: data.token });
-    addToast({
-      type: "sucess",
-      title: "Login realizado com sucesso",
-    });
+    // addToast({
+    //   type: "sucess",
+    //   title: "Login realizado com sucesso",
+    // });
     console.log(data);
   };
 
@@ -124,10 +124,10 @@ const Login: React.FC = () => {
       email: response.userID + "@facebook.com",
     });
     setAuthData({ user: data.usuario, token: data.token });
-    addToast({
-      type: "sucess",
-      title: "Login realizado com sucesso",
-    });
+    // addToast({
+    //   type: "sucess",
+    //   title: "Login realizado com sucesso",
+    // });
   };
 
   const componetClicked = (data: any) => {

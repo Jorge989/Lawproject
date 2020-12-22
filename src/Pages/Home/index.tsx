@@ -98,7 +98,7 @@ const Home: React.FC = () => {
         <Entrar>
           <button onClick={signOut}>Sair</button>
           <button onClick={() => setIsShow(!isShow)}>
-            <img src={Person} alt="React Logo" />
+          <h1 className="menuzinho">Menu</h1>
           </button>
         </Entrar>
 

@@ -46,6 +46,14 @@ interface SigInFormData {}
 const NovoCadastro: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [data2, setData] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [url, setUrl] = useState("");
+  const [errorE, setErrorE] = useState([""]);
+  const [errorS, setErrorS] = useState([""]);
+  const [passwordError, setPasswordError] = useState("");
+
   const location = useLocation<LocationState>();
   const history = useHistory();
   //  const {token} = history.location.state;
@@ -64,12 +72,14 @@ const NovoCadastro: React.FC = () => {
   const { id_usuario } = user ? JSON.parse(user) : "";
 
   const handleSubmit = useCallback(
+    
     async (data: SigInFormData): Promise<void> => {
       setLoading(true);
+      
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
-          senha: Yup.string()
+            senha: Yup.string()
             .trim()
             .matches(
               /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1}).*$/,
@@ -77,6 +87,7 @@ const NovoCadastro: React.FC = () => {
             )
             .min(8, "No minimo 8 dígitos"),
         });
+        
        
         await schema.validate(data, {
           abortEarly: false,
@@ -89,7 +100,9 @@ const NovoCadastro: React.FC = () => {
         //    Depois arrumei a chamada para: /usuarios/trocar_senha/${id_usuario}
         const response = await api.put(
           `usuarios/trocar_senha/${id_usuario}`,
-          {},
+          {
+            senha:senha
+          },
           {
             // Aqui eu ACHO que tava certo, MAS pesquisei lá na documentação do axios pra
             // ter certeza
@@ -107,7 +120,7 @@ const NovoCadastro: React.FC = () => {
         history.push("/home");
 
         // }
-        // console.log(response.data);
+         console.log(response.data);
          
       } catch (err) {
         setLoading(false);
@@ -124,21 +137,13 @@ const NovoCadastro: React.FC = () => {
           description: `Ocorreu um erro ao alterar senha, tente novamente`,
         });
       
+      
       }
       
     },
     
-    [addToast]
+    [addToast, senha]
   );
-
-  const [name, setName] = useState("");
-  
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [url, setUrl] = useState("");
-  const [errorE, setErrorE] = useState([""]);
-  const [errorS, setErrorS] = useState([""]);
-  const [passwordError, setPasswordError] = useState("");
 
   var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
   var regemail = /^\w+([-+.']\w+)@\w+([-.]\w+).\w+([-.]\w+)*$/;
@@ -285,7 +290,9 @@ placeholder="email"
               name="senha"
               icon={FiLock}
               type={inputType}
+              value={senha}
               placeholder="Senha"
+              onChange={(e) => setSenha(e.target.value)}
             />
 
             <Button     isLoading={loading} className="btn" type="submit" onClick={() => handleSubmit}>
